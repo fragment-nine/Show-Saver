@@ -15,7 +15,7 @@ def onTableChange(dat):
 	return
 
 def onRowChange(dat, rows):
-	op('/globals')['outputFolder',1]=dat[0,1]
+	op('/globals')['longPrefix',1]=dat[0,1]
 	return
 
 def onColChange(dat, cols):

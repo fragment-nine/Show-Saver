@@ -7,7 +7,6 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/track_master	container	lib/project1/track_master.tox	2024-06-25 14:15:38	False
 /Embody/externalizations	table	lib/Embody/externalizations.py	2023-12-29 14:57:55	
 /project1/start_stop/startLTC	chopexec	lib/project1/start_stop/startLTC.py	2023-12-29 14:58:39	
-/globals	table	lib/globals.py	2023-12-29 15:01:36	
 /project1/ui/v_select/vD_Execute	datexec	lib/project1/ui/v_select/vD_Execute.py	2023-12-29 15:01:36	
 /project1/ui/v_select/vL_Execute	chopexec	lib/project1/ui/v_select/vL_Execute.py	2023-12-29 15:01:36	
 /project1/start_stop/tools	execute	lib/project1/start_stop/tools.py	2023-12-29 15:01:36	
@@ -21,7 +20,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-06-25 14:15:38	False
 /SS_UI_v2/UI_Main/left_data/3_cc_delay	container	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay.tox	2024-06-25 14:15:38	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select.tox	2024-06-25 14:15:38	False
-/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-06-25 14:21:26	False
+/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-06-25 14:23:33	False
 /SS_UI_v2/UI_Main/left_data/2_audio_things	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things.tox	2024-06-25 14:15:38	False
 /SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	1600-12-31 17:02:55	False
 /SS_UI_v2/UI_Main/left_data/3_cc_delay	container	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay.tox	1600-12-31 17:02:55	False
@@ -51,3 +50,4 @@ network_path	type	rel_file_path	timestamp	dirty
 /device_data/refresh_av_info	chopexec	lib/device_data/refresh_av_info.py	2024-06-25 14:15:38	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/a_select3/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/a_select3/datexec1.py	2024-06-25 14:19:08	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/a_select3/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/a_select3/datexec2.py	2024-06-25 14:19:08	
+/globals	table	lib/globals.txt	2024-06-25 14:26:53	
