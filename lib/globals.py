@@ -1,5 +1,5 @@
-v1l	9.0
-v1d	V1|||3F45E80A-0176-46F7-B185-BB9E2C0E82E3|||0|||0|||FaceTime HD Camera
+v1l	test
+v1d	V1|||0|||0|||0|||OBS Virtual Camera
 a1l	default
 a1d	AppleUSBAudioEngine:ZOOM Corporation:AMS-24:3200000:1,2
 a2l	default
