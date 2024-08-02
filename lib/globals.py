@@ -1,11 +1,11 @@
 v1l	9.0
-v1d	V1|||3F45E80A-0176-46F7-B185-BB9E2C0E82E3|||0|||0|||FaceTime HD Camera
+v1d	V1|||0x2100000534d2109|||0|||0|||USB Video
 a1l	default
-a1d	AppleUSBAudioEngine:ZOOM Corporation:AMS-24:3200000:1,2
+a1d	AppleUSBAudioEngine:ZOOM Corporation:AMS-24:100000:1,2
 a2l	default
-a2d	BlackHole2ch_UID
+a2d	AppleUSBAudioEngine:MACROSILICON:USB Video:2100000:3
 a3l	default
-a3d	BF568F24-731B-41DB-932E-AC7E260BC71A
+a3d	AppleUSBAudioEngine:ZOOM Corporation:AMS-24:100000:1,2
 postRoll	15
-outputFolder	/Users/jacksongallagher/Documents/Show-Saver/test
-longPrefix	GreenDay24_
+outputFolder	/Users/f9/FragmentNine Dropbox/0 F9 Team/290_HU_Japan_24/01_Working/11_Recordings
+longPrefix	HU_
