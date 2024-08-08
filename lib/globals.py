@@ -7,5 +7,5 @@ a2d	BuiltInMicrophoneDevice
 a3l	default
 a3d	BlackHole2ch_UID
 postRoll	15
-outputFolder	None
+outputFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/290_HU_Japan_24/01_Working/11_Recordings
 longPrefix	HU
