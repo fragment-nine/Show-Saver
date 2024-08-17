@@ -1,11 +1,11 @@
-v1l	1.0
-v1d	json
-a1l	None
-a1d	default
+v1l	9.0
+v1d	V1|||D1F7C29F-5CAD-4D44-B21C-F2D100000001|||1|||0|||Goose Camera
+a1l	default
+a1d	~:AMS2_Aggregate:1
 a2l	default
-a2d	828E1AFB-A01E-4ACC-B4AE-CA9C00000003
+a2d	BuiltInMicrophoneDevice
 a3l	default
-a3d	AppleUSBAudioEngine:C-Media Electronics Inc.:USB Audio Device:100000:2,1
+a3d	AroundLoopback_UID
 postRoll	15
 outputFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/290_HU_Japan_24/01_Working/11_Recordings
 longPrefix	HU

@@ -7,7 +7,7 @@
 # 
 # Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
 import text1
-import text2
+
 
 def onOffToOn(channel, sampleIndex, val, prev):
 	text1.updateLibraryTable()
