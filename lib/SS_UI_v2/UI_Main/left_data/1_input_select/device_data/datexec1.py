@@ -15,7 +15,7 @@ def onTableChange(dat):
 	return
 
 def onRowChange(dat, rows):
-	op('/globals')['a3d',1]=dat[1,0]
+	op('/globals')['outputFolder',1]=dat[0,1]
 	return
 
 def onColChange(dat, cols):
