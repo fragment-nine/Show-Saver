@@ -1,24 +1,24 @@
 # Get Handle to the Operators
-videoDevice = op('audiodevin1')
-libraryTable = op('aLibrary')
-deviceTable = op('aDevice')
+audioDevice = op('audiodevin1')
+alibraryTable = op('aLibrary')
+adeviceTable = op('aDevice')
 
 # Function that handles library changes
-def updateLibraryTable():
-    libraryParam = videoDevice.par.driver
-    libraryTable.clear()
+def updateaLibraryTable():
+    alibraryParam = audioDevice.par.driver
+    alibraryTable.clear()
 
-    for label, value in zip(libraryParam.menuLabels, libraryParam.menuNames):
-        libraryTable.appendRow([value, label])
+    for label, value in zip(alibraryParam.menuLabels, alibraryParam.menuNames):
+        alibraryTable.appendRow([value, label])
 
 # Function that handles device changes
-def updateDeviceTable():
-    deviceParam = videoDevice.par.device
-    deviceTable.clear()
+def updateaDeviceTable():
+    adeviceParam = audioDevice.par.device
+    adeviceTable.clear()
 
-    for label, value in zip(deviceParam.menuLabels, deviceParam.menuNames):
-        deviceTable.appendRow([value, label])
+    for label, value in zip(adeviceParam.menuLabels, adeviceParam.menuNames):
+        adeviceTable.appendRow([value, label])
 
 # Update the tables initially
-updateLibraryTable()
-updateDeviceTable()
+updateaLibraryTable()
+updateaDeviceTable()

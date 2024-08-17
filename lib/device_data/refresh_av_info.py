@@ -12,8 +12,8 @@ import text2
 def onOffToOn(channel, sampleIndex, val, prev):
 	text1.updateLibraryTable()
 	text1.updateDeviceTable()
-	text2.updateLibraryTable()
-	text2.updateDeviceTable()
+	text1.updateaLibraryTable()
+	text1.updateaDeviceTable()
 	return
 
 def whileOn(channel, sampleIndex, val, prev):

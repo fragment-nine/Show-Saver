@@ -1,5 +1,5 @@
-v1l	9.0
-v1d	V1|||3F45E80A-0176-46F7-B185-BB9E2C0E82E3|||0|||0|||FaceTime HD Camera
+v1l	1.0
+v1d	json
 a1l	None
 a1d	default
 a2l	default
