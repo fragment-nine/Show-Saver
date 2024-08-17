@@ -29,3 +29,5 @@ network_path	type	rel_file_path	timestamp	dirty
 /device_data	container	lib/device_data.tox	2024-08-17 16:04:02	False
 /project1/files_out	container	lib/project1/files_out.tox	2024-08-17 16:08:14	False
 /project1/audio_input	container	lib/project1/audio_input.tox	2024-08-17 16:08:14	False
+/SS_UI_v2	container	lib/SS_UI_v2.tox	2024-08-17 16:17:49	False
+/project1	container	lib/project1.tox	2024-08-17 16:17:50	False
