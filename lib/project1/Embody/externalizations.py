@@ -1,7 +1,5 @@
 network_path	type	rel_file_path	timestamp	dirty
-/project1	container	lib/project1.tox	2024-08-18 13:37:45	False
-/test	container	lib/test.tox	2024-08-18 13:36:56	False
-/test/test2/test2	container	lib/test/test2/test2.tox	2024-08-18 13:36:07	False
+/project1	container	lib/project1.tox	2024-08-18 15:18:38	False
 /SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-08-18 13:32:25	False
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-08-18 13:32:25	False
 /SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-08-18 13:32:04	False
