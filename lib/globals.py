@@ -1,11 +1,11 @@
-v1l	9.0
-v1d	V1|||D1F7C29F-5CAD-4D44-B21C-F2D100000001|||1|||0|||Goose Camera
+v1l	5.0
+v1d	csv
 a1l	default
 a1d	AroundLoopback_UID
 a2l	default
-a2d	BuiltInMicrophoneDevice
+a2d	828E1AFB-A01E-4ACC-B4AE-CA9C00000003
 a3l	default
-a3d	BlackHole2ch_UID
+a3d	AppleUSBAudioEngine:C-Media Electronics Inc.:USB Audio Device:2100000:2,1
 postRoll	15
 outputFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/290_HU_Japan_24/01_Working/11_Recordings
 longPrefix	HU
