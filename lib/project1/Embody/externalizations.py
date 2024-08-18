@@ -24,6 +24,8 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/title/left	container	lib/SS_UI_v2/title/left.tox	2024-08-18 13:04:14	False
 /SS_UI_v2/title/right	container	lib/SS_UI_v2/title/right.tox	2024-08-18 13:04:14	False
 /SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	2024-08-18 13:04:02	False
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-08-18 13:32:25	False
+/SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-08-18 13:32:04	False
 /SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-18 12:16:58	False
 /SS_UI_v2/UI_Main/left_data/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/0_track_master.tox	2024-08-18 13:22:25	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select.tox	2024-08-17 17:03:35	False
@@ -72,5 +74,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/3_cc_delay/delay/right_inputs/audiodevice3_delaymax	field	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay/delay/right_inputs/audiodevice3_delaymax.tox	2024-08-18 13:01:56	False
 /SS_UI_v2/UI_Main/left_data/3_cc_delay/tc_compare	container	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay/tc_compare.tox	2024-08-18 13:01:56	False
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-08-17 17:03:35	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-08-18 13:32:25	False
-/SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-08-18 13:32:04	False
+/test	container	lib/test.tox	2024-08-18 13:34:36	False
+/test/test1	container	lib/test/test1.tox	2024-08-18 13:34:36	False
+/test/test1/test2	container	lib/test/test1/test2.tox	2024-08-18 13:34:36	False
+/test/test1/test3	container	lib/test/test1/test3.tox	2024-08-18 13:35:06	False
