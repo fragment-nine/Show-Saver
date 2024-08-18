@@ -4,7 +4,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-08-18 13:32:25	False
 /SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-08-18 13:32:04	False
 /SS_UI_v2/UI_Main/left_data/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/0_track_master.tox	2024-08-18 13:22:25	False
-/project1/track_master	container	lib/project1/track_master.tox	2024-08-18 13:15:28	False
+/project1/track_master	container	lib/project1/track_master.tox	2024-08-18 20:28:50	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString.tox	2024-08-18 13:07:31	False
 /project1/files_out	container	lib/project1/files_out.tox	2024-08-18 13:05:10	False
 /SS_UI_v2/title/right	container	lib/SS_UI_v2/title/right.tox	2024-08-18 13:04:14	False
