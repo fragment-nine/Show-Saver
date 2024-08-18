@@ -8,7 +8,6 @@
 # Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
 
 def onOffToOn(channel, sampleIndex, val, prev):
-	parent(2).op('1_input_select/opviewer1').par.opviewer = 'device_data'
 	op('/project1/start_stop/timer1').par.initialize.pulse()
 	op('/project1/start_stop/timer2').par.initialize.pulse()
 	op('/project1/start_stop/timer3').par.initialize.pulse()

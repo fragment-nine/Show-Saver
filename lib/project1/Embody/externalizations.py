@@ -38,7 +38,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/2_audio_things/viz	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things/viz.tox	2024-08-18 13:01:04	False
 /SS_UI_v2/UI_Main/left_data/2_audio_things	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things.tox	2024-08-18 13:00:28	False
 /project1/audio_input	container	lib/project1/audio_input.tox	2024-08-18 13:00:28	False
-/SS_UI_v2/UI_Main/left_data/1_5_pg_select1	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1.tox	2024-08-18 12:53:56	False
+/SS_UI_v2/UI_Main/left_data/1_5_pg_select1	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1.tox	2024-08-18 15:24:54	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec2	chopexec	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec2.py	2024-08-18 12:49:56	
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec1.py	2024-08-18 12:49:56	
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select1/manual_stop	button	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1/manual_stop.tox	2024-08-18 12:48:05	False
