@@ -1,5 +1,5 @@
-﻿v1l	9.0
-v1d	V1|||828E1AFB-A01E-4ACC-B4AE-CA9C00000001|||0|||0|||Jackson’s iPhone Camera
+v1l	9.0
+v1d	V1|||3F45E80A-0176-46F7-B185-BB9E2C0E82E3|||0|||0|||FaceTime HD Camera
 a1l	default
 a1d	AroundLoopback_UID
 a2l	default

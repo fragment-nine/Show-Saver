@@ -50,7 +50,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/track_master/reloadLTCExecute	chopexec	lib/project1/track_master/reloadLTCExecute.py	2024-08-18 12:21:36	
 /project1/start_stop	container	lib/project1/start_stop.tox	2024-08-18 12:20:15	False
 /SS_UI_v2/UI_Main/left_data/3_cc_delay	container	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay.tox	2024-08-18 12:16:58	False
-/SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-18 12:16:58	False
+/SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-18 15:22:14	False
 /project1/video_input	container	lib/project1/video_input.tox	2024-08-18 12:16:58	False
 /SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-08-18 12:11:44	False
 /project1/deko	container	lib/project1/deko.tox	2024-08-17 17:04:13	False
