@@ -2,7 +2,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/deko	container	lib/project1/deko.tox	2024-08-17 17:04:13	False
 /project1/start_stop	container	lib/project1/start_stop.tox	2024-08-18 12:20:15	False
 /project1/video_input	container	lib/project1/video_input.tox	2024-08-18 12:16:58	False
-/project1/track_master	container	lib/project1/track_master.tox	2024-08-18 12:20:15	False
+/project1/track_master	container	lib/project1/track_master.tox	2024-08-18 12:21:36	False
 /project1/Embody/externalizations	table	lib/project1/Embody/externalizations.py	2023-12-29 14:57:55	
 /project1/start_stop/startLTC	chopexec	lib/project1/start_stop/startLTC.py	2023-12-29 14:58:39	
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
@@ -36,3 +36,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2.py	2024-08-17 16:26:03	
 /SS_UI_v2/UI_Main/left_data/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/0_track_master.tox	2024-08-17 17:10:29	False
 /SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-18 12:16:58	False
+/project1/track_master/tools	execute	lib/project1/track_master/tools.py	2024-08-18 12:21:36	
+/project1/track_master/constants	table	lib/project1/track_master/constants.py	2024-08-18 12:21:36	
+/project1/track_master/trackMasterRaw	table	lib/project1/track_master/trackMasterRaw.csv	2024-08-18 12:21:36	
+/project1/track_master/reloadLTCExecute	chopexec	lib/project1/track_master/reloadLTCExecute.py	2024-08-18 12:21:36	
