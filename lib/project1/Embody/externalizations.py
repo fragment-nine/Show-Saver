@@ -1,6 +1,6 @@
 network_path	type	rel_file_path	timestamp	dirty
 /project1	container	lib/project1.tox	2024-08-18 16:18:38	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-08-18 14:32:25	False
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-08-20 21:31:33	False
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-08-18 14:32:25	False
 /SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-08-18 14:32:04	False
 /SS_UI_v2/UI_Main/left_data/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/0_track_master.tox	2024-08-18 14:22:25	False
@@ -36,8 +36,8 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/2_audio_things/viz/viz2	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things/viz/viz2.tox	2024-08-18 14:01:04	False
 /SS_UI_v2/UI_Main/left_data/2_audio_things/viz/viz1	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things/viz/viz1.tox	2024-08-18 14:01:04	False
 /SS_UI_v2/UI_Main/left_data/2_audio_things/viz	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things/viz.tox	2024-08-18 14:01:04	False
-/SS_UI_v2/UI_Main/left_data/2_audio_things	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things.tox	2024-08-18 14:00:28	False
-/project1/audio_input	container	lib/project1/audio_input.tox	2024-08-20 20:27:42	False
+/SS_UI_v2/UI_Main/left_data/2_audio_things	container	lib/SS_UI_v2/UI_Main/left_data/2_audio_things.tox	2024-08-20 21:31:33	False
+/project1/audio_input	container	lib/project1/audio_input.tox	2024-08-20 21:09:54	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select1	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1.tox	2024-08-18 16:24:54	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec2	chopexec	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec2.py	2024-08-18 12:49:56	
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select1/chopexec1.py	2024-08-18 12:49:56	
@@ -51,13 +51,13 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/start_stop	container	lib/project1/start_stop.tox	2024-08-18 13:20:15	False
 /SS_UI_v2/UI_Main/left_data/3_cc_delay	container	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay.tox	2024-08-18 13:16:58	False
 /SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-18 16:22:14	False
-/project1/video_input	container	lib/project1/video_input.tox	2024-08-20 20:32:03	False
-/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-08-20 20:44:41	False
+/project1/video_input	container	lib/project1/video_input.tox	2024-08-20 20:47:31	False
+/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-08-20 21:31:33	False
 /project1/deko	container	lib/project1/deko.tox	2024-08-17 18:04:13	False
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-08-17 18:03:35	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1.tox	2024-08-17 18:03:35	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select.tox	2024-08-17 18:03:35	False
-/device_data	container	lib/device_data.tox	2024-08-20 20:44:41	False
+/device_data	container	lib/device_data.tox	2024-08-20 20:47:31	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2.py	2024-08-17 16:26:03	
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec1.py	2024-08-17 16:26:03	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/v_select/vL_Execute	chopexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/v_select/vL_Execute.py	2023-12-29 15:01:36	

@@ -1,11 +1,11 @@
-v1l	9.0
-v1d	V1|||3F45E80A-0176-46F7-B185-BB9E2C0E82E3|||0|||0|||FaceTime HD Camera
-a1l	blackmagic
-a1d	None
+v1l	1.0
+v1d	None
+a1l	default
+a1d	BuiltInMicrophoneDevice
 a2l	default
-a2d	None
-a3l	default
-a3d	None
+a2d	BlackHole2ch_UID
+a3l	datapath
+a3d	BlackHole2ch_UID
 postRoll	15
 outputFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/290_HU_Japan_24/01_Working/11_Recordings
 longPrefix	HU_
