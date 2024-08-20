@@ -51,13 +51,13 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/start_stop	container	lib/project1/start_stop.tox	2024-08-18 13:20:15	False
 /SS_UI_v2/UI_Main/left_data/3_cc_delay	container	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay.tox	2024-08-18 13:16:58	False
 /SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-18 16:22:14	False
-/project1/video_input	container	lib/project1/video_input.tox	2024-08-18 13:16:58	False
-/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-08-20 20:27:42	False
+/project1/video_input	container	lib/project1/video_input.tox	2024-08-20 20:32:03	False
+/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-08-20 20:44:41	False
 /project1/deko	container	lib/project1/deko.tox	2024-08-17 18:04:13	False
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-08-17 18:03:35	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1.tox	2024-08-17 18:03:35	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select.tox	2024-08-17 18:03:35	False
-/device_data	container	lib/device_data.tox	2024-08-17 18:03:35	False
+/device_data	container	lib/device_data.tox	2024-08-20 20:44:41	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2.py	2024-08-17 16:26:03	
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec1.py	2024-08-17 16:26:03	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/v_select/vL_Execute	chopexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/v_select/vL_Execute.py	2023-12-29 15:01:36	
@@ -74,3 +74,5 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString.tox	1601-01-01 07:39:34	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldFolderBrowser	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldFolderBrowser.tox	1601-01-01 07:39:34	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data.tox	1601-01-01 07:39:34	False
+/device_data/text1	text	lib/device_data/text1.py	2024-08-20 20:32:03	
+/device_data/refresh_av_info	chopexec	lib/device_data/refresh_av_info.py	2024-08-20 20:38:02	

@@ -17,7 +17,10 @@ def updateDeviceTable():
     deviceTable.clear()
 
     for label, value in zip(deviceParam.menuLabels, deviceParam.menuNames):
+        if value == 'csv':
+            break
         deviceTable.appendRow([value, label])
+
 
 # Update the tables initially
 updateLibraryTable()
