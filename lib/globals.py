@@ -7,5 +7,5 @@ a2d	None
 a3l	None
 a3d	None
 postRoll	15
-outputFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/290_HU_Japan_24/01_Working/11_Recordings
-longPrefix	HU_
+outputFolder	
+longPrefix	Long
