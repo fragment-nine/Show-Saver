@@ -5,3 +5,4 @@ lib/.DS_Store
 ShowRecorder.130.toe
 ShowRecorder.toe
 test/*
+*globals.py
