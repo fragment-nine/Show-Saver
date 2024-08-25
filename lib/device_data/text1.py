@@ -10,6 +10,7 @@ def updateLibraryTable():
 
     for label, value in zip(libraryParam.menuLabels, libraryParam.menuNames):
         libraryTable.appendRow([value, label])
+    libraryTable.appendRow(["None", "None"])
 
 # Function that handles device changes
 def updateDeviceTable():
@@ -20,6 +21,7 @@ def updateDeviceTable():
         if value == 'csv':
             break
         deviceTable.appendRow([value, label])
+    deviceTable.appendRow(["None", "None"])
 
 
 # Update the tables initially
@@ -38,6 +40,7 @@ def updateaLibraryTable():
 
     for label, value in zip(alibraryParam.menuLabels, alibraryParam.menuNames):
         alibraryTable.appendRow([value, label])
+    alibraryTable.appendRow(["None", "None"])
 
 # Function that handles device changes
 def updateaDeviceTable():
@@ -46,6 +49,7 @@ def updateaDeviceTable():
 
     for label, value in zip(adeviceParam.menuLabels, adeviceParam.menuNames):
         adeviceTable.appendRow([value, label])
+    adeviceTable.appendRow(["None", "None"])
 
 # Update the tables initially
 updateaLibraryTable()
