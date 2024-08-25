@@ -2,7 +2,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1	container	lib/project1.tox	2024-08-18 03:18:38	False
 /SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-08-20 08:31:33	False
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-08-18 01:32:25	False
-/SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-08-18 01:32:04	False
+/SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-08-25 15:10:18	False
 /SS_UI_v2/UI_Main/left_data/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/0_track_master.tox	2024-08-18 01:22:25	False
 /project1/track_master	container	lib/project1/track_master.tox	2024-08-18 08:28:50	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString.tox	2024-08-18 01:07:31	False
@@ -50,10 +50,10 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/track_master/reloadLTCExecute	chopexec	lib/project1/track_master/reloadLTCExecute.py	2024-08-18 12:21:36	
 /project1/start_stop	container	lib/project1/start_stop.tox	2024-08-18 00:20:15	False
 /SS_UI_v2/UI_Main/left_data/3_cc_delay	container	lib/SS_UI_v2/UI_Main/left_data/3_cc_delay.tox	2024-08-18 00:16:58	False
-/SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-18 03:22:14	False
+/SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-08-25 15:08:00	False
 /project1/video_input	container	lib/project1/video_input.tox	2024-08-20 07:47:31	False
-/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-08-25 07:13:53	False
-/project1/deko	container	lib/project1/deko.tox	2024-08-17 05:04:13	False
+/SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-08-25 15:10:19	False
+/project1/deko	container	lib/project1/deko.tox	2024-08-25 15:07:15	False
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-08-17 05:03:35	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1.tox	2024-08-17 05:03:35	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select.tox	2024-08-17 05:03:35	False
