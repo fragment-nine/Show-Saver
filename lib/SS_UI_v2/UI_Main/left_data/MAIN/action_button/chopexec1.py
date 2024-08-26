@@ -8,21 +8,23 @@
 # Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
 
 def offToOn(channel, sampleIndex, val, prev):
-    print("Window on top = TRUE")
-    op('/perform').par.alwaysontop = 1
-    return
+   
 
 def whileOn(channel, sampleIndex, val, prev):
     return
 
 def onToOff(channel, sampleIndex, val, prev):
-    print("Window on top = FALSE")
-    op('/perform').par.alwaysontop = 0
-    return
+  
+
 
 def whileOff(channel, sampleIndex, val, prev):
 	return
 
 def onValueChange(channel, sampleIndex, val, prev):
+	op('/project1/start_stop/timer1').par.initialize.pulse()
+	op('/project1/start_stop/timer2').par.initialize.pulse()
+	op('/project1/start_stop/timer3').par.initialize.pulse()
+	op('/project1/start_stop/timer4').par.initialize.pulse()
+	return
 	return
 	
