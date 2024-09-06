@@ -1,6 +1,6 @@
 network_path	type	rel_file_path	timestamp	dirty
 /project1	container	lib/project1.tox	2024-09-06 11:16:27	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-09-06 13:06:43	False
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-09-06 15:18:04	False
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-09-06 11:17:22	False
 /SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-09-03 11:28:20	False
 /SS_UI_v2/UI_Main/left_data/MAIN/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_track_master.tox	2024-09-06 11:07:56	False
@@ -28,7 +28,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/deko	container	lib/project1/deko.tox	2024-09-04 11:34:24	False
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-08-19 12:48:30	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_5_pg_select.tox	2024-09-03 10:33:11	False
-/device_data	container	lib/device_data.tox	2024-09-03 10:33:11	False
+/device_data	container	lib/device_data.tox	2024-09-06 14:26:56	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec2.py	2024-08-17 16:26:03	
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/datexec1.py	2024-08-17 16:26:03	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/v_select/vL_Execute	chopexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/v_select/vL_Execute.py	2023-12-29 15:01:36	
