@@ -1,6 +1,6 @@
 <<<<<<< Updated upstream	
 v1l	0.0
-v1d	V1|||2|||2|||0|||NotchCam
+v1d	V1|||\\?\usb#vid_12d1&pid_4321&mi_00#9&1350f74c&2&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global|||0|||0|||j5 WebCam JVCU100
 a1l	default
 a1d	{0.0.1.00000000}.{93aed33f-4438-45ce-b0f9-b8a540a791ee}||Input_terminal_(Mic-j5_WebCam_JVCU100)||1
 a2l	default
