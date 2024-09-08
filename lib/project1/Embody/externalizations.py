@@ -53,7 +53,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/0_record_long	container	lib/SS_UI_v2/UI_Main/left_data/0_record_long.tox	2024-09-05 16:18:02	False
 /project1/video_input	container	lib/project1/video_input.tox	2024-09-07 13:51:15	False
 /SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-09-06 08:16:59	False
-/project1/deko	container	lib/project1/deko.tox	2024-09-05 16:18:02	False
+/project1/deko	container	lib/project1/deko.tox	2024-09-08 06:25:56	False
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-08-26 10:30:11	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1.tox	2024-09-05 16:18:02	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select.tox	2024-09-05 16:18:02	False
