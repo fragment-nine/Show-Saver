@@ -1,11 +1,13 @@
 # me - this DAT
 # 
-# frame - the current frame
-# state - True if the timeline is paused
+# channel - the Channel object which has changed
+# sampleIndex - the index of the changed sample
+# val - the numeric value of the changed sample
+# prev - the previous sample value
 # 
-# Make sure the corresponding toggle is enabled in the Execute DAT.
+# Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
 
-def onStart():
+def onOffToOn(channel, sampleIndex, val, prev):
 	globals=op('globals')
 	op('/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/a_select1/dropDownMenu2').par.Value0=globals['a1l',1]
 	op('/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/a_select1/dropDownMenu3').par.Value0=globals['a1d',1]
@@ -19,32 +21,17 @@ def onStart():
 	op('/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectPGMBU').par.Value0=globals['pgmbu',1]
 	op('/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTC').par.Value0=globals['tc',1]
 	op('/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTCCompare').par.Value0=globals['tccompare',1]
-	op('timer1').par.start.pulse()
-	print(globals['a1l',1])
 	return
 
-def onCreate():
+def whileOn(channel, sampleIndex, val, prev):
 	return
 
-def onExit():
+def onOnToOff(channel, sampleIndex, val, prev):
 	return
 
-def onFrameStart(frame):
+def whileOff(channel, sampleIndex, val, prev):
 	return
 
-def onFrameEnd(frame):
+def onValueChange(channel, sampleIndex, val, prev):
 	return
-
-def onPlayStateChange(state):
-	return
-
-def onDeviceChange():
-	return
-
-def onProjectPreSave():
-	return
-
-def onProjectPostSave():
-	return
-
 	

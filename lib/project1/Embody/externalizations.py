@@ -81,3 +81,4 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectPGMBU/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectPGMBU/datexec1.py	2024-09-06 08:15:36	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTC/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTC/datexec1.py	2024-09-06 08:16:13	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTCCompare/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTCCompare/datexec1.py	2024-09-06 08:16:48	
+/chopexec1	chopexec	lib/chopexec1.py	2024-09-09 11:53:38	
