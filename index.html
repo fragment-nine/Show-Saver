@@ -9,7 +9,7 @@
   #videoContainer {
     position: relative;
     width: 100%;
-    height: calc(100vh - 250px); /* Adjust for control panel height */
+    height: calc(100vh - 350px); /* Adjust for control panel and debug log height */
     background-color: #000;
   }
   #videoElement {
@@ -38,8 +38,7 @@
     transition: border-color 0.2s;
   }
   #controls {
-    position: fixed;
-    bottom: 0;
+    position: relative;
     width: 100%;
     background-color: #111;
     padding: 10px;
@@ -100,6 +99,16 @@
     height: 24px;
     background-color: red;
   }
+  #debugLog {
+    overflow-y: scroll;
+    height: 100px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    font-size: 12px;
+    box-sizing: border-box;
+    white-space: pre-wrap;
+  }
   canvas { display: none; }
 </style>
 </head>
@@ -144,7 +153,25 @@
   <div id="deltaDisplay">Delta: -- ms</div>
 </div>
 
+<div id="debugLog"></div>
+
 <script>
+// Override console.log to display messages on the page
+(function() {
+  var oldConsoleLog = console.log;
+  console.log = function(message) {
+    oldConsoleLog.apply(console, arguments);
+    var debugLog = document.getElementById('debugLog');
+    if (debugLog) {
+      if (typeof message === 'object') {
+        message = JSON.stringify(message);
+      }
+      debugLog.innerHTML += message + '<br>';
+      debugLog.scrollTop = debugLog.scrollHeight; // Auto-scroll to bottom
+    }
+  };
+})();
+
 let video = document.getElementById('videoElement');
 let canvas = document.getElementById('videoCanvas');
 let deltaDisplay = document.getElementById('deltaDisplay');
@@ -164,8 +191,7 @@ let volumeMeterThreshold = document.getElementById('volumeMeterThreshold');
 let videoStream;
 let audioStream;
 let audioContext;
-let analyser;
-let dataArray;
+let scriptProcessor;
 let audioInitialized = false;
 
 let lastFlashTime = null;
@@ -218,16 +244,16 @@ function updateVolumeThresholdMeter() {
 
 async function startApp() {
   try {
-    // Get user media
+    // Get user media for video
     videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
     video.srcObject = videoStream;
     video.muted = true; // Mute the video element to prevent audio playback
 
     // Wait for video metadata to be loaded
-    video.addEventListener('loadedmetadata', () => {
+    video.onloadedmetadata = () => {
       // Start processing
       processVideoFrame();
-    });
+    };
 
     // Setup audio processing
     if (!audioInitialized) {
@@ -256,22 +282,60 @@ function stopApp() {
     audioContext.close();
     audioInitialized = false;
   }
+  // Disconnect script processor
+  if (scriptProcessor) {
+    scriptProcessor.disconnect();
+  }
 }
 
 async function setupAudioProcessing() {
-  audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  // On iOS, AudioContext may start in 'suspended' state, resume it
-  await audioContext.resume();
+  try {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-  // Create a separate audio stream from the microphone
-  audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+    // Resume audio context if in suspended state (iOS requirement)
+    await audioContext.resume();
 
-  let source = audioContext.createMediaStreamSource(audioStream);
-  analyser = audioContext.createAnalyser();
-  analyser.fftSize = 256;
-  let bufferLength = analyser.frequencyBinCount;
-  dataArray = new Uint8Array(bufferLength);
-  source.connect(analyser);
+    // Get user media for audio
+    audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+
+    let source = audioContext.createMediaStreamSource(audioStream);
+
+    // Use ScriptProcessorNode for compatibility with iOS
+    scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+
+    source.connect(scriptProcessor);
+    scriptProcessor.connect(audioContext.destination);
+
+    scriptProcessor.onaudioprocess = function(event) {
+      let input = event.inputBuffer.getChannelData(0);
+      let sum = 0;
+      for (let i = 0; i < input.length; i++) {
+        sum += input[i] * input[i];
+      }
+      let avgVolume = Math.sqrt(sum / input.length);
+      avgVolume = avgVolume * 100; // Scale to percentage
+
+      // Update volume meter
+      let volumePercent = avgVolume;
+      volumeMeterFill.style.width = volumePercent + '%';
+
+      // Threshold crossing detection
+      let volumeOverThreshold = avgVolume > volumeThreshold;
+      if (volumeOverThreshold && !lastVolumeOverThreshold) {
+        let currentTime = performance.now();
+        lastBeepTime = currentTime;
+        indicateBeepDetection(); // Visual feedback for beep detection
+        calculateDelta();
+      }
+      lastVolumeOverThreshold = volumeOverThreshold;
+
+      // For debugging
+      console.log('Average Volume:', avgVolume.toFixed(2));
+    };
+  } catch (err) {
+    console.error('Error setting up audio processing.', err);
+    alert('Error setting up audio processing: ' + err.message);
+  }
 }
 
 function processVideoFrame() {
@@ -315,35 +379,10 @@ function processVideoFrame() {
   }
   lastBrightnessOverThreshold = brightnessOverThreshold;
 
+  // For debugging
+  console.log('Average Brightness:', avgBrightness.toFixed(2));
+
   requestAnimationFrame(processVideoFrame);
-}
-
-function processAudioFrame() {
-  if (!running) return;
-  analyser.getByteFrequencyData(dataArray);
-
-  // Calculate average volume
-  let sum = 0;
-  for (let i = 0; i < dataArray.length; i++) {
-    sum += dataArray[i];
-  }
-  let avgVolume = sum / dataArray.length;
-
-  // Update volume meter
-  let volumePercent = (avgVolume / 255) * 100;
-  volumeMeterFill.style.width = volumePercent + '%';
-
-  // Threshold crossing detection
-  let volumeOverThreshold = avgVolume > volumeThreshold;
-  if (volumeOverThreshold && !lastVolumeOverThreshold) {
-    let currentTime = performance.now();
-    lastBeepTime = currentTime;
-    indicateBeepDetection(); // Visual feedback for beep detection
-    calculateDelta();
-  }
-  lastVolumeOverThreshold = volumeOverThreshold;
-
-  requestAnimationFrame(processAudioFrame);
 }
 
 function calculateDelta() {
