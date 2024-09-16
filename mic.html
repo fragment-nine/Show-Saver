@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Microphone Audio Level Display</title>
+  <title>Microphone Audio Level Display with Logging</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -37,11 +37,28 @@
     input[type="range"] {
       width: 80%;
     }
+    #logContainer {
+      width: 80%;
+      margin: 20px auto;
+      text-align: left;
+      background-color: #333;
+      padding: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #444;
+    }
+    #logContainer h2 {
+      margin-top: 0;
+    }
+    .log-entry {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Microphone Audio Level Display</h1>
+  <h1>Microphone Audio Level Display with Logging</h1>
 
   <div id="volumeMeter">
     <div id="volumeFill"></div>
@@ -53,11 +70,17 @@
     <input type="range" id="threshold" min="0" max="100" value="50">
   </div>
 
+  <div id="logContainer">
+    <h2>Logs</h2>
+    <div id="logContent"></div>
+  </div>
+
   <script>
     let audioContext;
     let analyser;
     let dataArray;
     let threshold = 50;
+    let isAudioProcessing = false;
 
     const volumeMeter = document.getElementById('volumeMeter');
     const volumeFill = document.getElementById('volumeFill');
@@ -65,10 +88,23 @@
     const thresholdInput = document.getElementById('threshold');
     const thresholdValueDisplay = document.getElementById('thresholdValue');
 
+    const logContainer = document.getElementById('logContent');
+
+    function log(message) {
+      console.log(message); // Also log to the console
+      const logEntry = document.createElement('div');
+      logEntry.className = 'log-entry';
+      logEntry.textContent = message;
+      logContainer.appendChild(logEntry);
+      // Keep the latest log visible
+      logContainer.scrollTop = logContainer.scrollHeight;
+    }
+
     thresholdInput.addEventListener('input', () => {
       threshold = parseInt(thresholdInput.value);
       thresholdValueDisplay.textContent = threshold;
       updateThresholdMarker();
+      log(`Threshold updated to ${threshold}`);
     });
 
     function updateThresholdMarker() {
@@ -77,27 +113,42 @@
     }
 
     async function setupAudio() {
-      audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      
-      // On iOS, AudioContext may start in 'suspended' state, resume it
-      await audioContext.resume();
-
+      log('Setting up audio...');
       try {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        log('AudioContext created.');
+
+        // On iOS, AudioContext may start in 'suspended' state; resume it
+        if (audioContext.state === 'suspended') {
+          await audioContext.resume();
+          log('AudioContext resumed.');
+        }
+
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+        log('Microphone access granted.');
+
         const source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
         analyser.fftSize = 2048;
         const bufferLength = analyser.fftSize;
         dataArray = new Uint8Array(bufferLength);
         source.connect(analyser);
+        log('Audio nodes connected.');
+
+        isAudioProcessing = true;
         processAudio();
       } catch (err) {
-        console.error('Error accessing microphone:', err);
+        log(`Error accessing microphone: ${err.message}`);
         alert('Could not access microphone: ' + err.message);
       }
     }
 
     function processAudio() {
+      if (!isAudioProcessing) {
+        log('Audio processing stopped.');
+        return;
+      }
+
       requestAnimationFrame(processAudio);
       analyser.getByteTimeDomainData(dataArray);
 
@@ -116,10 +167,25 @@
       } else {
         volumeFill.style.backgroundColor = 'lime';
       }
+
+      log(`Volume: ${volumePercent.toFixed(2)}%`);
     }
 
+    // Start audio setup when the page loads
+    window.addEventListener('load', () => {
+      setupAudio();
+    });
+
+    // Stop audio processing when the page is unloaded
+    window.addEventListener('beforeunload', () => {
+      isAudioProcessing = false;
+      if (audioContext && audioContext.state !== 'closed') {
+        audioContext.close();
+        log('AudioContext closed.');
+      }
+    });
+
     updateThresholdMarker();
-    setupAudio();
   </script>
 
 </body>
