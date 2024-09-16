@@ -183,7 +183,7 @@
       await startMeasurement();
       startButton.textContent = 'Stop Measurement';
       startButton.disabled = false;
-      running = true;
+      // Remove running = true; from here
     } else {
       stopMeasurement();
       startButton.textContent = 'Start Measurement';
@@ -224,6 +224,9 @@
       updateBrightnessThresholdMeter();
       updateAudioThresholdMeter();
 
+      // Set running to true before starting processing
+      running = true;
+
       // Start processing frames
       processVideoFrame();
       processAudioFrame();
@@ -247,6 +250,7 @@
       audioContext.close();
       audioContext = null;
     }
+    running = false; // Ensure running is set to false
   }
 
   function processVideoFrame() {
