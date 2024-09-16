@@ -259,6 +259,8 @@
     running = false; // Ensure running is set to false
   }
 
+let lastBrightnessThresholdCrossedTime = null;
+let lastAudioThresholdCrossedTime = null;
 let brightnessThresholdCrossed = false;
 let audioThresholdCrossed = false;
 
@@ -287,19 +289,17 @@ function processVideoFrame() {
 
     // Detect threshold crossing (from below to above)
     if (avgBrightness > brightnessThreshold && !brightnessThresholdCrossed) {
-      lastBrightnessEventTime = performance.now();
+      lastBrightnessThresholdCrossedTime = performance.now();
       brightnessThresholdCrossed = true; // Mark threshold as crossed
       crosshair.style.borderColor = 'lime';
       setTimeout(() => {
         crosshair.style.borderColor = 'red';
       }, 200);
-      brightnessExceeded = true;
     }
 
     // Reset flag if brightness drops below threshold
     if (avgBrightness <= brightnessThreshold) {
       brightnessThresholdCrossed = false;
-      brightnessExceeded = false;
     }
 
     checkThresholdsAndCalculateDelta();
@@ -318,19 +318,17 @@ function processAudioFrame() {
 
   // Detect threshold crossing (from below to above)
   if (normalizedAmplitude > audioThreshold && !audioThresholdCrossed) {
-    lastAudioEventTime = performance.now();
+    lastAudioThresholdCrossedTime = performance.now();
     audioThresholdCrossed = true; // Mark threshold as crossed
     deltaDisplay.style.color = 'yellow';
     setTimeout(() => {
       deltaDisplay.style.color = '#fff';
     }, 200);
-    audioExceeded = true;
   }
 
   // Reset flag if audio drops below threshold
   if (normalizedAmplitude <= audioThreshold) {
     audioThresholdCrossed = false;
-    audioExceeded = false;
   }
 
   checkThresholdsAndCalculateDelta();
@@ -339,12 +337,23 @@ function processAudioFrame() {
 }
 
 function checkThresholdsAndCalculateDelta() {
-  // Only calculate delta if both thresholds were crossed
-  if (brightnessExceeded && audioExceeded) {
-    calculateDelta();
-    // Reset exceeded flags after delta calculation to avoid continuous measurement
-    brightnessExceeded = false;
-    audioExceeded = false;
+  if (lastBrightnessThresholdCrossedTime && lastAudioThresholdCrossedTime) {
+    const delta = lastAudioThresholdCrossedTime - lastBrightnessThresholdCrossedTime;
+
+    // Interpret the delta for user-friendly output
+    if (Math.abs(delta) > 500) {
+      // Avoid large sync flips; keep it stable by ignoring large differences
+      return;
+    }
+
+    // Determine whether audio is ahead or behind
+    if (delta > 0) {
+      // Audio is ahead of video
+      deltaDisplay.textContent = 'Audio is ' + delta.toFixed(2) + ' ms ahead of video';
+    } else {
+      // Video is ahead of audio (invert the delta)
+      deltaDisplay.textContent = 'Audio is ' + Math.abs(delta.toFixed(2)) + ' ms behind video';
+    }
   }
 }
 
