@@ -78,14 +78,16 @@
 
     async function setupAudio() {
       audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      
+      // On iOS, AudioContext may start in 'suspended' state, resume it
       await audioContext.resume();
 
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
         const source = audioContext.createMediaStreamSource(stream);
         analyser = audioContext.createAnalyser();
-        analyser.fftSize = 256;
-        const bufferLength = analyser.frequencyBinCount;
+        analyser.fftSize = 2048;
+        const bufferLength = analyser.fftSize;
         dataArray = new Uint8Array(bufferLength);
         source.connect(analyser);
         processAudio();
@@ -97,14 +99,16 @@
 
     function processAudio() {
       requestAnimationFrame(processAudio);
-      analyser.getByteFrequencyData(dataArray);
+      analyser.getByteTimeDomainData(dataArray);
 
       let sum = 0;
       for (let i = 0; i < dataArray.length; i++) {
-        sum += dataArray[i];
+        // Normalize between -1 and 1
+        let sample = dataArray[i] / 128 - 1;
+        sum += sample * sample;
       }
-      let avgVolume = sum / dataArray.length;
-      let volumePercent = (avgVolume / 255) * 100;
+      let rms = Math.sqrt(sum / dataArray.length);
+      let volumePercent = rms * 100;
       volumeFill.style.width = volumePercent + '%';
 
       if (volumePercent > threshold) {
