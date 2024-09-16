@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera and Audio Meter</title>
+    <style>
+        #meter {
+            width: 100%;
+            height: 20px;
+            background-color: #ccc;
+            margin-top: 10px;
+        }
+        #meter .level {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0%;
+        }
+        #startButton {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" autoplay playsinline muted></video>
+    <div id="meter">
+        <div class="level"></div>
+    </div>
+    <button id="startButton">Start</button>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+            .then(function(stream) {
+                // Display the video stream
+                var video = document.getElementById('video');
+                video.srcObject = stream;
+                video.muted = true; // Mute the video element to prevent audio playback
+
+                // Set up audio processing
+                var audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                audioContext.resume().then(() => {
+                    var audioSource = audioContext.createMediaStreamSource(stream);
+                    var analyser = audioContext.createAnalyser();
+                    analyser.fftSize = 256;
+                    audioSource.connect(analyser);
+
+                    // No audio playback to prevent feedback
+                    // Do not connect the audioSource to audioContext.destination
+
+                    var dataArray = new Uint8Array(analyser.frequencyBinCount);
+                    var meter = document.querySelector('#meter .level');
+
+                    function updateMeter() {
+                        requestAnimationFrame(updateMeter);
+                        analyser.getByteFrequencyData(dataArray);
+                        var max = Math.max(...dataArray);
+                        var percent = (max / 255) * 100;
+                        meter.style.width = percent + '%';
+                    }
+
+                    updateMeter();
+                });
+            })
+            .catch(function(err) {
+                console.error('Error accessing media devices.', err);
+            });
+        });
+    </script>
+</body>
+</html>

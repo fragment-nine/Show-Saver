@@ -100,6 +100,20 @@
     height: 24px;
     background-color: red;
   }
+  #logContainer {
+    width: 100%;
+    height: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    margin-top: 10px;
+  }
+  #logContent {
+    font-size: 14px;
+    white-space: pre-wrap;
+  }
   canvas { display: none; }
 </style>
 </head>
@@ -142,6 +156,10 @@
     </div>
   </div>
   <div id="deltaDisplay">Delta: -- ms</div>
+  <div id="logContainer">
+    <h2>Logs</h2>
+    <div id="logContent"></div>
+  </div>
 </div>
 
 <script>
@@ -161,6 +179,8 @@ let volumeMeterFill = document.getElementById('volumeFill');
 let brightnessMeterThreshold = document.getElementById('brightnessMeterThreshold');
 let volumeMeterThreshold = document.getElementById('volumeMeterThreshold');
 
+let logContent = document.getElementById('logContent');
+
 let videoStream;
 let audioStream;
 let audioContext;
@@ -178,6 +198,14 @@ let volumeThreshold = parseInt(volumeThresholdInput.value);
 
 let lastBrightnessOverThreshold = false;
 let lastVolumeOverThreshold = false;
+
+function log(message) {
+  console.log(message); // Log to browser console
+  let logEntry = document.createElement('div');
+  logEntry.textContent = message;
+  logContent.appendChild(logEntry);
+  logContent.scrollTop = logContent.scrollHeight; // Scroll to the latest log entry
+}
 
 startButton.addEventListener('click', async () => {
   if (!running) {
@@ -198,12 +226,14 @@ brightnessThresholdInput.addEventListener('input', () => {
   brightnessThreshold = parseInt(brightnessThresholdInput.value);
   brightnessValueDisplay.textContent = brightnessThreshold;
   updateBrightnessThresholdMeter();
+  log(`Brightness threshold updated to ${brightnessThreshold}`);
 });
 
 volumeThresholdInput.addEventListener('input', () => {
   volumeThreshold = parseInt(volumeThresholdInput.value);
   volumeValueDisplay.textContent = volumeThreshold;
   updateVolumeThresholdMeter();
+  log(`Volume threshold updated to ${volumeThreshold}`);
 });
 
 function updateBrightnessThresholdMeter() {
@@ -222,12 +252,7 @@ async function startApp() {
     videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
     video.srcObject = videoStream;
     video.muted = true; // Mute the video element to prevent audio playback
-
-    // Wait for video metadata to be loaded
-    video.addEventListener('loadedmetadata', () => {
-      // Start processing
-      processVideoFrame();
-    });
+    log('Video stream started.');
 
     // Setup audio processing
     if (!audioInitialized) {
@@ -236,8 +261,11 @@ async function startApp() {
     }
 
     processAudioFrame();
+    log('Audio processing started.');
+
+    processVideoFrame();
   } catch (err) {
-    console.error('Error accessing media devices.', err);
+    log(`Error accessing media devices: ${err.message}`);
     alert('Error accessing camera or microphone: ' + err.message);
   }
 }
@@ -246,25 +274,39 @@ function stopApp() {
   // Stop video stream
   if (videoStream) {
     videoStream.getTracks().forEach(track => track.stop());
+    log('Video stream stopped.');
   }
   // Stop audio stream
   if (audioStream) {
     audioStream.getTracks().forEach(track => track.stop());
+    log('Audio stream stopped.');
   }
   // Stop audio context
   if (audioContext) {
     audioContext.close();
+    log('Audio context closed.');
     audioInitialized = false;
   }
 }
 
 async function setupAudioProcessing() {
   audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  // On iOS, AudioContext may start in 'suspended' state, resume it
   await audioContext.resume();
+  log(`AudioContext created and resumed. State: ${audioContext.state}`);
 
-  // Create a separate audio stream from the microphone
+  const devices = await navigator.mediaDevices.enumerateDevices();
+  const audioDevices = devices.filter(device => device.kind === 'audioinput');
+  
+  log('Available audio input devices:');
+  audioDevices.forEach(device => log(`Device label: ${device.label}, Device ID: ${device.deviceId}`));
+
   audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+  log('Microphone access granted.');
+
+  let audioTracks = audioStream.getAudioTracks();
+  if (audioTracks.length > 0) {
+    log(`Using audio device: ${audioTracks[0].label}`);
+  }
 
   let source = audioContext.createMediaStreamSource(audioStream);
   analyser = audioContext.createAnalyser();
@@ -272,6 +314,7 @@ async function setupAudioProcessing() {
   let bufferLength = analyser.frequencyBinCount;
   dataArray = new Uint8Array(bufferLength);
   source.connect(analyser);
+  log('Audio nodes connected.');
 }
 
 function processVideoFrame() {
@@ -287,7 +330,6 @@ function processVideoFrame() {
   canvas.height = video.videoHeight;
   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-  // Get pixel data from center region
   let centerX = canvas.width / 2;
   let centerY = canvas.height / 2;
   let sampleSize = 10;
@@ -295,23 +337,22 @@ function processVideoFrame() {
   let pixels = imageData.data;
   let sum = 0;
   for (let i = 0; i < pixels.length; i += 4) {
-    // Grayscale value
     let brightness = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
     sum += brightness;
   }
   let avgBrightness = sum / (pixels.length / 4);
 
-  // Update brightness meter
   let brightnessPercent = (avgBrightness / 255) * 100;
   brightnessMeterFill.style.width = brightnessPercent + '%';
+  log(`Brightness level: ${brightnessPercent.toFixed(2)}%`);
 
-  // Threshold crossing detection
   let brightnessOverThreshold = avgBrightness > brightnessThreshold;
   if (brightnessOverThreshold && !lastBrightnessOverThreshold) {
     let currentTime = performance.now();
     lastFlashTime = currentTime;
-    indicateFlashDetection(); // Visual feedback for flash detection
+    indicateFlashDetection();
     calculateDelta();
+    log('Flash detected.');
   }
   lastBrightnessOverThreshold = brightnessOverThreshold;
 
@@ -320,26 +361,26 @@ function processVideoFrame() {
 
 function processAudioFrame() {
   if (!running) return;
+
   analyser.getByteFrequencyData(dataArray);
 
-  // Calculate average volume
   let sum = 0;
   for (let i = 0; i < dataArray.length; i++) {
     sum += dataArray[i];
   }
   let avgVolume = sum / dataArray.length;
 
-  // Update volume meter
   let volumePercent = (avgVolume / 255) * 100;
   volumeMeterFill.style.width = volumePercent + '%';
+  log(`Volume level: ${volumePercent.toFixed(2)}%`);
 
-  // Threshold crossing detection
   let volumeOverThreshold = avgVolume > volumeThreshold;
   if (volumeOverThreshold && !lastVolumeOverThreshold) {
     let currentTime = performance.now();
     lastBeepTime = currentTime;
-    indicateBeepDetection(); // Visual feedback for beep detection
+    indicateBeepDetection();
     calculateDelta();
+    log('Beep detected.');
   }
   lastVolumeOverThreshold = volumeOverThreshold;
 
@@ -350,11 +391,11 @@ function calculateDelta() {
   if (lastFlashTime && lastBeepTime) {
     let delta = lastFlashTime - lastBeepTime;
     deltaDisplay.textContent = 'Delta: ' + delta.toFixed(2) + ' ms';
+    log(`Delta calculated: ${delta.toFixed(2)} ms`);
   }
 }
 
 function indicateFlashDetection() {
-  // Change crosshair color to green briefly
   crosshair.style.borderColor = 'lime';
   setTimeout(() => {
     crosshair.style.borderColor = 'red';
@@ -362,14 +403,12 @@ function indicateFlashDetection() {
 }
 
 function indicateBeepDetection() {
-  // Change delta display color to yellow briefly
   deltaDisplay.style.color = 'yellow';
   setTimeout(() => {
     deltaDisplay.style.color = '#fff';
   }, 200);
 }
 
-// Initialize threshold meters
 updateBrightnessThresholdMeter();
 updateVolumeThresholdMeter();
 
