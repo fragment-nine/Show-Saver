@@ -1,372 +1,258 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sync Measurement App</title>
-<style>
-  body { margin: 0; font-family: Arial, sans-serif; background-color: #222; color: #fff; overflow: hidden; }
-  #videoContainer {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 250px); /* Adjust for control panel height */
-    background-color: #000;
-  }
-  #videoElement {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  #overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-  }
-  #crosshair {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 40px;
-    height: 40px;
-    margin-left: -20px;
-    margin-top: -20px;
-    border: 2px solid red;
-    border-radius: 50%;
-    transition: border-color 0.2s;
-  }
-  #controls {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #111;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-  #deltaDisplay {
-    font-size: 24px;
-    margin-top: 10px;
-    text-align: center;
-  }
-  #startButton {
-    padding: 10px 20px;
-    font-size: 18px;
-    width: 100%;
-  }
-  #sliders {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-  }
-  .slider-container {
-    flex: 1;
-    margin: 0 5px;
-  }
-  .slider-container label {
-    display: block;
-    text-align: center;
-  }
-  .slider-container input[type="range"] {
-    width: 100%;
-  }
-  #meters {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 10px;
-  }
-  .meter-container {
-    flex: 1;
-    margin: 0 5px;
-    text-align: center;
-  }
-  .meter {
-    width: 100%;
-    height: 20px;
-    background-color: #555;
-    position: relative;
-    margin-top: 5px;
-  }
-  .meter-fill {
-    height: 100%;
-    background-color: lime;
-    width: 0%;
-  }
-  .meter-threshold {
-    position: absolute;
-    top: -2px;
-    width: 2px;
-    height: 24px;
-    background-color: red;
-  }
-  canvas { display: none; }
-</style>
+  <title>Microphone Audio Level Display with Logging</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding-top: 50px;
+    }
+    #volumeMeter {
+      width: 80%;
+      height: 20px;
+      background-color: #555;
+      margin: 20px auto;
+      position: relative;
+    }
+    #volumeFill {
+      height: 100%;
+      background-color: lime;
+      width: 0%;
+      transition: width 0.1s;
+    }
+    #thresholdMarker {
+      position: absolute;
+      top: -5px;
+      width: 2px;
+      height: 30px;
+      background-color: red;
+      left: 50%;
+    }
+    #controls {
+      margin-top: 30px;
+    }
+    input[type="range"] {
+      width: 80%;
+    }
+    #logContainer {
+      width: 80%;
+      margin: 20px auto;
+      text-align: left;
+      background-color: #333;
+      padding: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      border: 1px solid #444;
+    }
+    #logContainer h2 {
+      margin-top: 0;
+    }
+    .log-entry {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    #startButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    #waveformCanvas {
+      background-color: #333;
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
-<div id="videoContainer">
-  <video id="videoElement" autoplay playsinline></video>
-  <canvas id="videoCanvas"></canvas>
-  <div id="overlay">
-    <div id="crosshair"></div>
+  <h1>Microphone Audio Level Display with Logging</h1>
+
+  <div id="volumeMeter">
+    <div id="volumeFill"></div>
+    <div id="thresholdMarker"></div>
   </div>
-</div>
 
-<div id="controls">
-  <button id="startButton">Start Measurement</button>
-  <div id="sliders">
-    <div class="slider-container">
-      <label for="brightnessThreshold">Brightness Threshold: <span id="brightnessValue">250</span></label>
-      <input type="range" id="brightnessThreshold" min="0" max="255" value="250">
-    </div>
-    <div class="slider-container">
-      <label for="volumeThreshold">Volume Threshold: <span id="volumeValue">15</span></label>
-      <input type="range" id="volumeThreshold" min="0" max="100" value="15">
-    </div>
+  <div id="controls">
+    <label for="threshold">Volume Threshold: <span id="thresholdValue">50</span></label><br>
+    <input type="range" id="threshold" min="0" max="100" value="50">
   </div>
-  <div id="meters">
-    <div class="meter-container">
-      <div>Brightness Level</div>
-      <div class="meter" id="brightnessMeter">
-        <div class="meter-fill" id="brightnessFill"></div>
-        <div class="meter-threshold" id="brightnessMeterThreshold"></div>
-      </div>
-    </div>
-    <div class="meter-container">
-      <div>Volume Level</div>
-      <div class="meter" id="volumeMeter">
-        <div class="meter-fill" id="volumeFill"></div>
-        <div class="meter-threshold" id="volumeMeterThreshold"></div>
-      </div>
-    </div>
+
+  <button id="startButton">Start Audio</button>
+
+  <div id="logContainer">
+    <h2>Logs</h2>
+    <div id="logContent"></div>
   </div>
-  <div id="deltaDisplay">Delta: -- ms</div>
-</div>
 
-<script>
-let video = document.getElementById('videoElement');
-let canvas = document.getElementById('videoCanvas');
-let deltaDisplay = document.getElementById('deltaDisplay');
-let startButton = document.getElementById('startButton');
-let crosshair = document.getElementById('crosshair');
+  <canvas id="waveformCanvas" width="800" height="200"></canvas>
 
-let brightnessThresholdInput = document.getElementById('brightnessThreshold');
-let volumeThresholdInput = document.getElementById('volumeThreshold');
-let brightnessValueDisplay = document.getElementById('brightnessValue');
-let volumeValueDisplay = document.getElementById('volumeValue');
+  <script>
+    let audioContext;
+    let analyser;
+    let dataArray;
+    let threshold = 50;
+    let isAudioProcessing = false;
 
-let brightnessMeterFill = document.getElementById('brightnessFill');
-let volumeMeterFill = document.getElementById('volumeFill');
-let brightnessMeterThreshold = document.getElementById('brightnessMeterThreshold');
-let volumeMeterThreshold = document.getElementById('volumeMeterThreshold');
+    const volumeMeter = document.getElementById('volumeMeter');
+    const volumeFill = document.getElementById('volumeFill');
+    const thresholdMarker = document.getElementById('thresholdMarker');
+    const thresholdInput = document.getElementById('threshold');
+    const thresholdValueDisplay = document.getElementById('thresholdValue');
+    const startButton = document.getElementById('startButton');
 
-let videoStream;
-let audioContext;
-let analyser;
-let dataArray;
-let audioInitialized = false;
+    const logContainer = document.getElementById('logContent');
 
-let lastFlashTime = null;
-let lastBeepTime = null;
-
-let running = false;
-
-let brightnessThreshold = parseInt(brightnessThresholdInput.value);
-let volumeThreshold = parseInt(volumeThresholdInput.value);
-
-let lastBrightnessOverThreshold = false;
-let lastVolumeOverThreshold = false;
-
-startButton.addEventListener('click', async () => {
-  if (!running) {
-    startButton.disabled = true;
-    await startApp();
-    startButton.textContent = 'Stop Measurement';
-    startButton.disabled = false;
-    running = true;
-  } else {
-    stopApp();
-    startButton.textContent = 'Start Measurement';
-    deltaDisplay.textContent = 'Delta: -- ms';
-    running = false;
-  }
-});
-
-brightnessThresholdInput.addEventListener('input', () => {
-  brightnessThreshold = parseInt(brightnessThresholdInput.value);
-  brightnessValueDisplay.textContent = brightnessThreshold;
-  updateBrightnessThresholdMeter();
-});
-
-volumeThresholdInput.addEventListener('input', () => {
-  volumeThreshold = parseInt(volumeThresholdInput.value);
-  volumeValueDisplay.textContent = volumeThreshold;
-  updateVolumeThresholdMeter();
-});
-
-function updateBrightnessThresholdMeter() {
-  let meterWidth = document.getElementById('brightnessMeter').offsetWidth;
-  brightnessMeterThreshold.style.left = (brightnessThreshold / 255) * meterWidth - 1 + 'px';
-}
-
-function updateVolumeThresholdMeter() {
-  let meterWidth = document.getElementById('volumeMeter').offsetWidth;
-  volumeMeterThreshold.style.left = (volumeThreshold / 100) * meterWidth - 1 + 'px';
-}
-
-async function startApp() {
-  try {
-    // Request both audio and video together
-    videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: true });
-    video.srcObject = videoStream;
-    video.muted = true; // Mute the video element to prevent audio playback
-
-    // Wait for video metadata to be loaded
-    video.addEventListener('loadedmetadata', () => {
-      // Start processing
-      processVideoFrame();
-    });
-
-    // Setup audio processing
-    if (!audioInitialized) {
-      await setupAudioProcessing();
-      audioInitialized = true;
+    function log(message) {
+      console.log(message); // Also log to the console
+      const logEntry = document.createElement('div');
+      logEntry.className = 'log-entry';
+      logEntry.textContent = message;
+      logContainer.appendChild(logEntry);
+      // Keep the latest log visible
+      logContainer.scrollTop = logContainer.scrollHeight;
     }
 
-    processAudioFrame();
-  } catch (err) {
-    console.error('Error accessing media devices.', err);
-    alert('Error accessing camera or microphone: ' + err.message);
-  }
-}
+    thresholdInput.addEventListener('input', () => {
+      threshold = parseInt(thresholdInput.value);
+      thresholdValueDisplay.textContent = threshold;
+      updateThresholdMarker();
+      log(`Threshold updated to ${threshold}`);
+    });
 
-function stopApp() {
-  // Stop video stream (which includes audio)
-  if (videoStream) {
-    videoStream.getTracks().forEach(track => track.stop());
-  }
-  // Stop audio context
-  if (audioContext) {
-    audioContext.close();
-    audioInitialized = false;
-  }
-}
+    function updateThresholdMarker() {
+      const meterWidth = volumeMeter.offsetWidth;
+      thresholdMarker.style.left = (threshold / 100) * meterWidth - 1 + 'px';
+    }
 
-async function setupAudioProcessing() {
-  audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  // On iOS, AudioContext may start in 'suspended' state, resume it
-  await audioContext.resume();
+    async function setupAudio() {
+      log('Setting up audio...');
+      try {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        log(`AudioContext created. State: ${audioContext.state}`);
 
-  // Create an audio source from the video stream
-  let source = audioContext.createMediaStreamSource(videoStream);
-  analyser = audioContext.createAnalyser();
-  analyser.fftSize = 256;
-  let bufferLength = analyser.frequencyBinCount;
-  dataArray = new Uint8Array(bufferLength);
-  source.connect(analyser);
-}
+        // On iOS and some browsers, AudioContext may start in 'suspended' state
+        if (audioContext.state === 'suspended') {
+          await audioContext.resume();
+          log(`AudioContext resumed. State: ${audioContext.state}`);
+        }
 
-function processVideoFrame() {
-  if (!running) return;
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        log('Microphone access granted.');
 
-  let ctx = canvas.getContext('2d');
-  if (video.videoWidth === 0 || video.videoHeight === 0) {
-    requestAnimationFrame(processVideoFrame);
-    return;
-  }
+        const track = stream.getAudioTracks()[0];
+        log(`Using audio device: ${track.label}`);
 
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        const source = audioContext.createMediaStreamSource(stream);
+        log('MediaStreamSource created from microphone.');
 
-  // Get pixel data from center region
-  let centerX = canvas.width / 2;
-  let centerY = canvas.height / 2;
-  let sampleSize = 10;
-  let imageData = ctx.getImageData(centerX - sampleSize / 2, centerY - sampleSize / 2, sampleSize, sampleSize);
-  let pixels = imageData.data;
-  let sum = 0;
-  for (let i = 0; i < pixels.length; i += 4) {
-    // Grayscale value
-    let brightness = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
-    sum += brightness;
-  }
-  let avgBrightness = sum / (pixels.length / 4);
+        // Optional: Boost gain if needed
+        const gainNode = audioContext.createGain();
+        gainNode.gain.value = 1; // Start with no gain
+        log('Gain node created.');
 
-  // Update brightness meter
-  let brightnessPercent = (avgBrightness / 255) * 100;
-  brightnessMeterFill.style.width = brightnessPercent + '%';
+        source.connect(gainNode);
+        log('Source connected to gain node.');
 
-  // Threshold crossing detection
-  let brightnessOverThreshold = avgBrightness > brightnessThreshold;
-  if (brightnessOverThreshold && !lastBrightnessOverThreshold) {
-    let currentTime = performance.now();
-    lastFlashTime = currentTime;
-    indicateFlashDetection(); // Visual feedback for flash detection
-    calculateDelta();
-  }
-  lastBrightnessOverThreshold = brightnessOverThreshold;
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 2048;
+        const bufferLength = analyser.fftSize;
+        dataArray = new Float32Array(bufferLength);
+        log(`Analyser created with FFT size: ${analyser.fftSize}`);
 
-  requestAnimationFrame(processVideoFrame);
-}
+        gainNode.connect(analyser);
+        log('Gain node connected to analyser.');
 
-function processAudioFrame() {
-  if (!running) return;
-  analyser.getByteFrequencyData(dataArray);
+        isAudioProcessing = true;
+        processAudio();
+      } catch (err) {
+        log(`Error accessing microphone: ${err.message}`);
+        alert('Could not access microphone: ' + err.message);
+      }
+    }
 
-  // Calculate average volume
-  let sum = 0;
-  for (let i = 0; i < dataArray.length; i++) {
-    sum += dataArray[i];
-  }
-  let avgVolume = sum / dataArray.length;
+    function processAudio() {
+      if (!isAudioProcessing) {
+        log('Audio processing stopped.');
+        return;
+      }
 
-  // Update volume meter
-  let volumePercent = (avgVolume / 255) * 100;
-  volumeMeterFill.style.width = volumePercent + '%';
+      requestAnimationFrame(processAudio);
+      analyser.getFloatTimeDomainData(dataArray);
 
-  // Threshold crossing detection
-  let volumeOverThreshold = avgVolume > volumeThreshold;
-  if (volumeOverThreshold && !lastVolumeOverThreshold) {
-    let currentTime = performance.now();
-    lastBeepTime = currentTime;
-    indicateBeepDetection(); // Visual feedback for beep detection
-    calculateDelta();
-  }
-  lastVolumeOverThreshold = volumeOverThreshold;
+      let sumSquares = 0.0;
+      for (let i = 0; i < dataArray.length; i++) {
+        sumSquares += dataArray[i] * dataArray[i];
+      }
+      let rms = Math.sqrt(sumSquares / dataArray.length);
 
-  requestAnimationFrame(processAudioFrame);
-}
+      let volumePercent = rms * 1000; // Adjust scaling factor as needed
+      volumePercent = Math.min(Math.max(volumePercent, 0), 100);
 
-function calculateDelta() {
-  if (lastFlashTime && lastBeepTime) {
-    let delta = lastFlashTime - lastBeepTime;
-    deltaDisplay.textContent = 'Delta: ' + delta.toFixed(2) + ' ms';
-  }
-}
+      volumeFill.style.width = volumePercent + '%';
 
-function indicateFlashDetection() {
-  // Change crosshair color to green briefly
-  crosshair.style.borderColor = 'lime';
-  setTimeout(() => {
-    crosshair.style.borderColor = 'red';
-  }, 200);
-}
+      if (volumePercent > threshold) {
+        volumeFill.style.backgroundColor = 'red';
+      } else {
+        volumeFill.style.backgroundColor = 'lime';
+      }
 
-function indicateBeepDetection() {
-  // Change delta display color to yellow briefly
-  deltaDisplay.style.color = 'yellow';
-  setTimeout(() => {
-    deltaDisplay.style.color = '#fff';
-  }, 200);
-}
+      log(`Volume: ${volumePercent.toFixed(2)}%`);
+      drawWaveform();
+    }
 
-// Initialize threshold meters
-updateBrightnessThresholdMeter();
-updateVolumeThresholdMeter();
+    function drawWaveform() {
+      const canvas = document.getElementById('waveformCanvas');
+      const canvasCtx = canvas.getContext('2d');
+      const bufferLength = analyser.fftSize;
+      const waveformData = new Float32Array(bufferLength);
+      analyser.getFloatTimeDomainData(waveformData);
 
-</script>
+      canvasCtx.fillStyle = '#333';
+      canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+      canvasCtx.lineWidth = 2;
+      canvasCtx.strokeStyle = 'lime';
+      canvasCtx.beginPath();
+
+      const sliceWidth = canvas.width / bufferLength;
+      let x = 0;
+
+      for(let i = 0; i < bufferLength; i++) {
+        const v = waveformData[i] * 0.5 + 0.5; // Normalize to [0, 1]
+        const y = v * canvas.height;
+
+        if(i === 0) {
+          canvasCtx.moveTo(x, y);
+        } else {
+          canvasCtx.lineTo(x, y);
+        }
+
+        x += sliceWidth;
+      }
+
+      canvasCtx.lineTo(canvas.width, canvas.height / 2);
+      canvasCtx.stroke();
+    }
+
+    startButton.addEventListener('click', () => {
+      setupAudio();
+      startButton.disabled = true;
+    });
+
+    // Stop audio processing when the page is unloaded
+    window.addEventListener('beforeunload', () => {
+      isAudioProcessing = false;
+      if (audioContext && audioContext.state !== 'closed') {
+        audioContext.close();
+        log('AudioContext closed.');
+      }
+    });
+
+    updateThresholdMarker();
+  </script>
 
 </body>
 </html>
