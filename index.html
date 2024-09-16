@@ -162,6 +162,9 @@
   let lastBrightnessEventTime = null;
   let lastAudioEventTime = null;
 
+  let brightnessExceeded = false;
+  let audioExceeded = false;
+
   let running = false;
 
   // Update threshold displays
@@ -257,83 +260,82 @@
   }
 
   function processVideoFrame() {
-    if (!running) return;
+  if (!running) return;
 
-    if (videoElement.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
-      // Set canvas dimensions
-      videoCanvas.width = videoElement.videoWidth;
-      videoCanvas.height = videoElement.videoHeight;
+  if (videoElement.readyState >= HTMLMediaElement.HAVE_ENOUGH_DATA) {
+    videoCanvas.width = videoElement.videoWidth;
+    videoCanvas.height = videoElement.videoHeight;
+    videoContext.drawImage(videoElement, 0, 0, videoCanvas.width, videoCanvas.height);
 
-      // Draw video frame to canvas
-      videoContext.drawImage(videoElement, 0, 0, videoCanvas.width, videoCanvas.height);
+    const sampleSize = 10;
+    const centerX = videoCanvas.width / 2;
+    const centerY = videoCanvas.height / 2;
+    const imageData = videoContext.getImageData(centerX - sampleSize / 2, centerY - sampleSize / 2, sampleSize, sampleSize);
+    const data = imageData.data;
 
-      // Sample central area for brightness
-      const sampleSize = 10;
-      const centerX = videoCanvas.width / 2;
-      const centerY = videoCanvas.height / 2;
-      const imageData = videoContext.getImageData(centerX - sampleSize / 2, centerY - sampleSize / 2, sampleSize, sampleSize);
-      const data = imageData.data;
-
-      // Calculate average brightness
-      let totalBrightness = 0;
-      for (let i = 0; i < data.length; i += 4) {
-        // Average the RGB values to get brightness
-        const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
-        totalBrightness += brightness;
-      }
-      const avgBrightness = totalBrightness / (data.length / 4);
-
-      // Update brightness meter
-      let brightnessPercent = (avgBrightness / 255) * 100;
-      brightnessMeterFill.style.width = brightnessPercent + '%';
-
-      // Check if brightness exceeds threshold
-      if (avgBrightness > brightnessThreshold) {
-        const currentTime = performance.now();
-        lastBrightnessEventTime = currentTime;
-        crosshair.style.borderColor = 'lime';
-        setTimeout(() => {
-          crosshair.style.borderColor = 'red';
-        }, 200);
-        calculateDelta();
-      }
+    let totalBrightness = 0;
+    for (let i = 0; i < data.length; i += 4) {
+      const brightness = (data[i] + data[i + 1] + data[i + 2]) / 3;
+      totalBrightness += brightness;
     }
+    const avgBrightness = totalBrightness / (data.length / 4);
+    let brightnessPercent = (avgBrightness / 255) * 100;
+    brightnessMeterFill.style.width = brightnessPercent + '%';
 
-    requestAnimationFrame(processVideoFrame);
-  }
-
-  function processAudioFrame() {
-    if (!running) return;
-
-    analyser.getByteFrequencyData(audioDataArray);
-
-    // Calculate maximum amplitude
-    const maxAmplitude = Math.max(...audioDataArray);
-    const normalizedAmplitude = (maxAmplitude / 255) * 100;
-
-    // Update audio meter
-    audioMeterFill.style.width = normalizedAmplitude + '%';
-
-    // Check if audio amplitude exceeds threshold
-    if (normalizedAmplitude > audioThreshold) {
-      const currentTime = performance.now();
-      lastAudioEventTime = currentTime;
-      deltaDisplay.style.color = 'yellow';
+    if (avgBrightness > brightnessThreshold) {
+      lastBrightnessEventTime = performance.now();
+      crosshair.style.borderColor = 'lime';
       setTimeout(() => {
-        deltaDisplay.style.color = '#fff';
+        crosshair.style.borderColor = 'red';
       }, 200);
-      calculateDelta();
+      brightnessExceeded = true; // Brightness threshold exceeded
+    } else {
+      brightnessExceeded = false; // Reset if below threshold
     }
 
-    requestAnimationFrame(processAudioFrame);
+    checkThresholdsAndCalculateDelta();
   }
 
-  function calculateDelta() {
-    if (lastBrightnessEventTime && lastAudioEventTime) {
-      const delta = lastBrightnessEventTime - lastAudioEventTime;
-      deltaDisplay.textContent = 'Delta: ' + delta.toFixed(2) + ' ms';
-    }
+  requestAnimationFrame(processVideoFrame);
+}
+
+function processAudioFrame() {
+  if (!running) return;
+
+  analyser.getByteFrequencyData(audioDataArray);
+  const maxAmplitude = Math.max(...audioDataArray);
+  const normalizedAmplitude = (maxAmplitude / 255) * 100;
+  audioMeterFill.style.width = normalizedAmplitude + '%';
+
+  if (normalizedAmplitude > audioThreshold) {
+    lastAudioEventTime = performance.now();
+    deltaDisplay.style.color = 'yellow';
+    setTimeout(() => {
+      deltaDisplay.style.color = '#fff';
+    }, 200);
+    audioExceeded = true; // Audio threshold exceeded
+  } else {
+    audioExceeded = false; // Reset if below threshold
   }
+
+  checkThresholdsAndCalculateDelta();
+
+  requestAnimationFrame(processAudioFrame);
+}
+
+function checkThresholdsAndCalculateDelta() {
+  // Only call calculateDelta when both thresholds are exceeded
+  if (brightnessExceeded && audioExceeded) {
+    calculateDelta();
+  }
+}
+
+function calculateDelta() {
+  if (lastBrightnessEventTime && lastAudioEventTime) {
+    const delta = lastBrightnessEventTime - lastAudioEventTime;
+    deltaDisplay.textContent = 'Delta: ' + delta.toFixed(2) + ' ms';
+  }
+}
 
   // Initialize threshold meters on page load
   updateBrightnessThresholdMeter();
