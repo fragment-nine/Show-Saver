@@ -162,7 +162,6 @@ let brightnessMeterThreshold = document.getElementById('brightnessMeterThreshold
 let volumeMeterThreshold = document.getElementById('volumeMeterThreshold');
 
 let videoStream;
-let audioStream;
 let audioContext;
 let analyser;
 let dataArray;
@@ -218,8 +217,8 @@ function updateVolumeThresholdMeter() {
 
 async function startApp() {
   try {
-    // Get user media
-    videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
+    // Request both audio and video together
+    videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: true });
     video.srcObject = videoStream;
     video.muted = true; // Mute the video element to prevent audio playback
 
@@ -243,13 +242,9 @@ async function startApp() {
 }
 
 function stopApp() {
-  // Stop video stream
+  // Stop video stream (which includes audio)
   if (videoStream) {
     videoStream.getTracks().forEach(track => track.stop());
-  }
-  // Stop audio stream
-  if (audioStream) {
-    audioStream.getTracks().forEach(track => track.stop());
   }
   // Stop audio context
   if (audioContext) {
@@ -263,10 +258,8 @@ async function setupAudioProcessing() {
   // On iOS, AudioContext may start in 'suspended' state, resume it
   await audioContext.resume();
 
-  // Create a separate audio stream from the microphone
-  audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
-
-  let source = audioContext.createMediaStreamSource(audioStream);
+  // Create an audio source from the video stream
+  let source = audioContext.createMediaStreamSource(videoStream);
   analyser = audioContext.createAnalyser();
   analyser.fftSize = 256;
   let bufferLength = analyser.frequencyBinCount;
