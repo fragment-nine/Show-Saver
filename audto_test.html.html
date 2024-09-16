@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Audio Meter Test</title>
+  <style>
+    #volumeMeter {
+      width: 100%;
+      height: 20px;
+      background-color: #555;
+      position: relative;
+      margin-top: 20px;
+    }
+    #volumeFill {
+      height: 100%;
+      background-color: lime;
+      width: 0%;
+    }
+  </style>
+</head>
+<body>
+
+<button id="startButton">Start Audio Test</button>
+<div id="volumeMeter">
+  <div id="volumeFill"></div>
+</div>
+
+<script>
+  let startButton = document.getElementById('startButton');
+  let volumeFill = document.getElementById('volumeFill');
+  let audioContext;
+  let analyser;
+  let dataArray;
+
+  startButton.addEventListener('click', async () => {
+    startButton.disabled = true;
+
+    if (!audioContext) {
+      audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      await audioContext.resume();
+      console.log(`AudioContext state after resume: ${audioContext.state}`);
+    }
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      let source = audioContext.createMediaStreamSource(stream);
+      analyser = audioContext.createAnalyser();
+      analyser.fftSize = 256;
+      dataArray = new Uint8Array(analyser.frequencyBinCount);
+      source.connect(analyser);
+      console.log('Audio source connected to analyser.');
+      processAudio();
+    } catch (err) {
+      console.error('Error accessing microphone:', err);
+      alert('Error accessing microphone: ' + err.message);
+      startButton.disabled = false;
+    }
+  });
+
+  function processAudio() {
+    analyser.getByteFrequencyData(dataArray);
+
+    // Calculate maximum amplitude in frequency domain
+    let max = Math.max(...dataArray);
+
+    // Normalize max value to 0 - 1 range
+    let normalizedVolume = max / 255;
+
+    // Update volume meter
+    let volumePercent = normalizedVolume * 100;
+    volumeFill.style.width = volumePercent + '%';
+
+    // Log values for debugging
+    console.log(`normalizedVolume: ${normalizedVolume}, volumePercent: ${volumePercent}`);
+
+    requestAnimationFrame(processAudio);
+  }
+</script>
+
+</body>
+</html>
