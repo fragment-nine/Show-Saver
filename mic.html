@@ -121,74 +121,90 @@
     }
 
     async function setupAudio() {
-      log('Setting up audio...');
-      try {
-        audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        log(`AudioContext created. State: ${audioContext.state}`);
+        log('Setting up audio...');
+        try {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            log(`AudioContext created. State: ${audioContext.state}`);
 
-        // On iOS and some browsers, AudioContext may start in 'suspended' state
-        if (audioContext.state === 'suspended') {
-          await audioContext.resume();
-          log(`AudioContext resumed. State: ${audioContext.state}`);
+            // On iOS and some browsers, AudioContext may start in 'suspended' state
+            if (audioContext.state === 'suspended') {
+            await audioContext.resume();
+            log(`AudioContext resumed. State: ${audioContext.state}`);
+            }
+
+            const devices = await navigator.mediaDevices.enumerateDevices();
+            const audioDevices = devices.filter(device => device.kind === 'audioinput');
+            log('Available audio input devices:');
+            audioDevices.forEach(device => log(`Device label: ${device.label}, Device ID: ${device.deviceId}`));
+
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            log('Microphone access granted.');
+
+            const track = stream.getAudioTracks()[0];
+            log(`Using audio device: ${track.label}`);
+
+            const source = audioContext.createMediaStreamSource(stream);
+            log('MediaStreamSource created from microphone.');
+
+            // Boost gain
+            const gainNode = audioContext.createGain();
+            gainNode.gain.value = 10; // Increase gain
+            log('Gain node created and connected with boosted gain.');
+
+            source.connect(gainNode);
+            log('Source connected to gain node.');
+
+            analyser = audioContext.createAnalyser();
+            analyser.fftSize = 2048;
+            const bufferLength = analyser.fftSize;
+            dataArray = new Float32Array(bufferLength);
+            log(`Analyser created with FFT size: ${analyser.fftSize}`);
+
+            gainNode.connect(analyser);
+            log('Gain node connected to analyser.');
+
+            isAudioProcessing = true;
+            processAudio();
+        } catch (err) {
+            log(`Error accessing microphone: ${err.message}`);
+            alert('Could not access microphone: ' + err.message);
+        }
+        }
+    function processAudio() {
+        if (!isAudioProcessing) {
+            log('Audio processing stopped.');
+            return;
         }
 
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        log('Microphone access granted.');
+        requestAnimationFrame(processAudio);
+        analyser.getFloatTimeDomainData(dataArray);
 
-        const source = audioContext.createMediaStreamSource(stream);
+        let sumSquares = 0.0;
+        for (let i = 0; i < dataArray.length; i++) {
+            sumSquares += dataArray[i] * dataArray[i];
+        }
 
-        // Optional: Create a gain node to adjust volume
-        const gainNode = audioContext.createGain();
-        gainNode.gain.value = 1; // Increase if needed
+        let rms = Math.sqrt(sumSquares / dataArray.length);
 
-        source.connect(gainNode);
+        // Log raw data for debugging
+        log(`Raw RMS value: ${rms}`);
 
-        analyser = audioContext.createAnalyser();
-        analyser.fftSize = 2048;
-        const bufferLength = analyser.fftSize;
-        dataArray = new Float32Array(bufferLength);
+        // Adjust scaling factor to better match typical microphone input levels
+        let volumePercent = rms * 5000; // Try scaling by 5000 for better sensitivity
 
-        gainNode.connect(analyser);
+        // Clamp volumePercent between 0 and 100
+        volumePercent = Math.min(Math.max(volumePercent, 0), 100);
 
-        log('Audio nodes connected.');
+        volumeFill.style.width = volumePercent + '%';
 
-        isAudioProcessing = true;
-        processAudio();
-      } catch (err) {
-        log(`Error accessing microphone: ${err.message}`);
-        alert('Could not access microphone: ' + err.message);
-      }
-    }
+        if (volumePercent > threshold) {
+            volumeFill.style.backgroundColor = 'red';
+        } else {
+            volumeFill.style.backgroundColor = 'lime';
+        }
 
-    function processAudio() {
-      if (!isAudioProcessing) {
-        log('Audio processing stopped.');
-        return;
-      }
-
-      requestAnimationFrame(processAudio);
-      analyser.getFloatTimeDomainData(dataArray);
-
-      let sumSquares = 0.0;
-      for (let i = 0; i < dataArray.length; i++) {
-        sumSquares += dataArray[i] * dataArray[i];
-      }
-      let rms = Math.sqrt(sumSquares / dataArray.length);
-      let volumePercent = rms * 1000; // Multiply by 1000 for better scaling
-
-      // Clamp volumePercent between 0 and 100
-      volumePercent = Math.min(Math.max(volumePercent, 0), 100);
-
-      volumeFill.style.width = volumePercent + '%';
-
-      if (volumePercent > threshold) {
-        volumeFill.style.backgroundColor = 'red';
-      } else {
-        volumeFill.style.backgroundColor = 'lime';
-      }
-
-      log(`Volume: ${volumePercent.toFixed(2)}%`);
-    }
+        log(`Volume: ${volumePercent.toFixed(2)}%`);
+        }
 
     startButton.addEventListener('click', () => {
       setupAudio();
