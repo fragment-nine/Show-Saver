@@ -54,6 +54,11 @@
       font-size: 14px;
       margin-bottom: 5px;
     }
+    #startButton {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
@@ -69,6 +74,8 @@
     <label for="threshold">Volume Threshold: <span id="thresholdValue">50</span></label><br>
     <input type="range" id="threshold" min="0" max="100" value="50">
   </div>
+
+  <button id="startButton">Start Audio</button>
 
   <div id="logContainer">
     <h2>Logs</h2>
@@ -87,6 +94,7 @@
     const thresholdMarker = document.getElementById('thresholdMarker');
     const thresholdInput = document.getElementById('threshold');
     const thresholdValueDisplay = document.getElementById('thresholdValue');
+    const startButton = document.getElementById('startButton');
 
     const logContainer = document.getElementById('logContent');
 
@@ -116,23 +124,32 @@
       log('Setting up audio...');
       try {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        log('AudioContext created.');
+        log(`AudioContext created. State: ${audioContext.state}`);
 
-        // On iOS, AudioContext may start in 'suspended' state; resume it
+        // On iOS and some browsers, AudioContext may start in 'suspended' state
         if (audioContext.state === 'suspended') {
           await audioContext.resume();
-          log('AudioContext resumed.');
+          log(`AudioContext resumed. State: ${audioContext.state}`);
         }
 
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         log('Microphone access granted.');
 
         const source = audioContext.createMediaStreamSource(stream);
+
+        // Optional: Create a gain node to adjust volume
+        const gainNode = audioContext.createGain();
+        gainNode.gain.value = 1; // Increase if needed
+
+        source.connect(gainNode);
+
         analyser = audioContext.createAnalyser();
         analyser.fftSize = 2048;
         const bufferLength = analyser.fftSize;
-        dataArray = new Uint8Array(bufferLength);
-        source.connect(analyser);
+        dataArray = new Float32Array(bufferLength);
+
+        gainNode.connect(analyser);
+
         log('Audio nodes connected.');
 
         isAudioProcessing = true;
@@ -150,16 +167,18 @@
       }
 
       requestAnimationFrame(processAudio);
-      analyser.getByteTimeDomainData(dataArray);
+      analyser.getFloatTimeDomainData(dataArray);
 
-      let sum = 0;
+      let sumSquares = 0.0;
       for (let i = 0; i < dataArray.length; i++) {
-        // Normalize between -1 and 1
-        let sample = dataArray[i] / 128 - 1;
-        sum += sample * sample;
+        sumSquares += dataArray[i] * dataArray[i];
       }
-      let rms = Math.sqrt(sum / dataArray.length);
-      let volumePercent = rms * 100;
+      let rms = Math.sqrt(sumSquares / dataArray.length);
+      let volumePercent = rms * 1000; // Multiply by 1000 for better scaling
+
+      // Clamp volumePercent between 0 and 100
+      volumePercent = Math.min(Math.max(volumePercent, 0), 100);
+
       volumeFill.style.width = volumePercent + '%';
 
       if (volumePercent > threshold) {
@@ -171,9 +190,9 @@
       log(`Volume: ${volumePercent.toFixed(2)}%`);
     }
 
-    // Start audio setup when the page loads
-    window.addEventListener('load', () => {
+    startButton.addEventListener('click', () => {
       setupAudio();
+      startButton.disabled = true;
     });
 
     // Stop audio processing when the page is unloaded
