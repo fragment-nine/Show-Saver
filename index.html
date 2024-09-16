@@ -162,6 +162,7 @@ let brightnessMeterThreshold = document.getElementById('brightnessMeterThreshold
 let volumeMeterThreshold = document.getElementById('volumeMeterThreshold');
 
 let videoStream;
+let audioStream;
 let audioContext;
 let analyser;
 let dataArray;
@@ -218,7 +219,7 @@ function updateVolumeThresholdMeter() {
 async function startApp() {
   try {
     // Get user media
-    videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: true });
+    videoStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' }, audio: false });
     video.srcObject = videoStream;
     video.muted = true; // Mute the video element to prevent audio playback
 
@@ -230,13 +231,8 @@ async function startApp() {
 
     // Setup audio processing
     if (!audioInitialized) {
-      setupAudioProcessing();
+      await setupAudioProcessing();
       audioInitialized = true;
-    }
-
-    // Resume audio context if suspended
-    if (audioContext.state === 'suspended') {
-      await audioContext.resume();
     }
 
     processAudioFrame();
@@ -251,6 +247,10 @@ function stopApp() {
   if (videoStream) {
     videoStream.getTracks().forEach(track => track.stop());
   }
+  // Stop audio stream
+  if (audioStream) {
+    audioStream.getTracks().forEach(track => track.stop());
+  }
   // Stop audio context
   if (audioContext) {
     audioContext.close();
@@ -258,13 +258,18 @@ function stopApp() {
   }
 }
 
-function setupAudioProcessing() {
+async function setupAudioProcessing() {
   audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  let audioStream = new MediaStream(videoStream.getAudioTracks()); // Get only audio tracks
+  // On iOS, AudioContext may start in 'suspended' state, resume it
+  await audioContext.resume();
+
+  // Create a separate audio stream from the microphone
+  audioStream = await navigator.mediaDevices.getUserMedia({ audio: true, video: false });
+
   let source = audioContext.createMediaStreamSource(audioStream);
   analyser = audioContext.createAnalyser();
-  analyser.fftSize = 2048;
-  let bufferLength = analyser.fftSize;
+  analyser.fftSize = 256;
+  let bufferLength = analyser.frequencyBinCount;
   dataArray = new Uint8Array(bufferLength);
   source.connect(analyser);
 }
@@ -315,17 +320,17 @@ function processVideoFrame() {
 
 function processAudioFrame() {
   if (!running) return;
-  analyser.getByteTimeDomainData(dataArray);
+  analyser.getByteFrequencyData(dataArray);
 
   // Calculate average volume
   let sum = 0;
   for (let i = 0; i < dataArray.length; i++) {
-    sum += Math.abs(dataArray[i] - 128);
+    sum += dataArray[i];
   }
   let avgVolume = sum / dataArray.length;
 
   // Update volume meter
-  let volumePercent = (avgVolume / 128) * 100;
+  let volumePercent = (avgVolume / 255) * 100;
   volumeMeterFill.style.width = volumePercent + '%';
 
   // Threshold crossing detection
