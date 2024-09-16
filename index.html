@@ -175,6 +175,9 @@ let running = false;
 let brightnessThreshold = parseInt(brightnessThresholdInput.value);
 let volumeThreshold = parseInt(volumeThresholdInput.value);
 
+let lastBrightnessOverThreshold = false;
+let lastVolumeOverThreshold = false;
+
 startButton.addEventListener('click', async () => {
   if (!running) {
     startButton.disabled = true;
@@ -297,15 +300,15 @@ function processVideoFrame() {
   let brightnessPercent = (avgBrightness / 255) * 100;
   brightnessMeterFill.style.width = brightnessPercent + '%';
 
-  // Threshold detection
-  if (avgBrightness > brightnessThreshold) {
+  // Threshold crossing detection
+  let brightnessOverThreshold = avgBrightness > brightnessThreshold;
+  if (brightnessOverThreshold && !lastBrightnessOverThreshold) {
     let currentTime = performance.now();
-    if (!lastFlashTime || currentTime - lastFlashTime > 500) { // Debounce
-      lastFlashTime = currentTime;
-      indicateFlashDetection(); // Visual feedback for flash detection
-      calculateDelta();
-    }
+    lastFlashTime = currentTime;
+    indicateFlashDetection(); // Visual feedback for flash detection
+    calculateDelta();
   }
+  lastBrightnessOverThreshold = brightnessOverThreshold;
 
   requestAnimationFrame(processVideoFrame);
 }
@@ -325,15 +328,15 @@ function processAudioFrame() {
   let volumePercent = (avgVolume / 128) * 100;
   volumeMeterFill.style.width = volumePercent + '%';
 
-  // Threshold detection
-  if (avgVolume > volumeThreshold) {
+  // Threshold crossing detection
+  let volumeOverThreshold = avgVolume > volumeThreshold;
+  if (volumeOverThreshold && !lastVolumeOverThreshold) {
     let currentTime = performance.now();
-    if (!lastBeepTime || currentTime - lastBeepTime > 500) { // Debounce
-      lastBeepTime = currentTime;
-      indicateBeepDetection(); // Visual feedback for beep detection
-      calculateDelta();
-    }
+    lastBeepTime = currentTime;
+    indicateBeepDetection(); // Visual feedback for beep detection
+    calculateDelta();
   }
+  lastVolumeOverThreshold = volumeOverThreshold;
 
   requestAnimationFrame(processAudioFrame);
 }
@@ -346,7 +349,7 @@ function calculateDelta() {
 }
 
 function indicateFlashDetection() {
-  // Temporarily change crosshair color to green
+  // Change crosshair color to green briefly
   crosshair.style.borderColor = 'lime';
   setTimeout(() => {
     crosshair.style.borderColor = 'red';
@@ -354,7 +357,7 @@ function indicateFlashDetection() {
 }
 
 function indicateBeepDetection() {
-  // Temporarily change delta display color
+  // Change delta display color to yellow briefly
   deltaDisplay.style.color = 'yellow';
   setTimeout(() => {
     deltaDisplay.style.color = '#fff';
