@@ -9,7 +9,7 @@
   #videoContainer {
     position: relative;
     width: 100%;
-    height: calc(100vh - 100px); /* Adjust for control panel height */
+    height: calc(100vh - 250px); /* Adjust for control panel height */
     background-color: #000;
   }
   #videoElement {
@@ -43,15 +43,62 @@
     width: 100%;
     background-color: #111;
     padding: 10px;
-    text-align: center;
+    box-sizing: border-box;
   }
   #deltaDisplay {
     font-size: 24px;
     margin-top: 10px;
+    text-align: center;
   }
   #startButton {
     padding: 10px 20px;
     font-size: 18px;
+    width: 100%;
+  }
+  #sliders {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  .slider-container {
+    flex: 1;
+    margin: 0 5px;
+  }
+  .slider-container label {
+    display: block;
+    text-align: center;
+  }
+  .slider-container input[type="range"] {
+    width: 100%;
+  }
+  #meters {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+  }
+  .meter-container {
+    flex: 1;
+    margin: 0 5px;
+    text-align: center;
+  }
+  .meter {
+    width: 100%;
+    height: 20px;
+    background-color: #555;
+    position: relative;
+    margin-top: 5px;
+  }
+  .meter-fill {
+    height: 100%;
+    background-color: lime;
+    width: 0%;
+  }
+  .meter-threshold {
+    position: absolute;
+    top: -2px;
+    width: 2px;
+    height: 24px;
+    background-color: red;
   }
   canvas { display: none; }
 </style>
@@ -68,6 +115,32 @@
 
 <div id="controls">
   <button id="startButton">Start Measurement</button>
+  <div id="sliders">
+    <div class="slider-container">
+      <label for="brightnessThreshold">Brightness Threshold: <span id="brightnessValue">250</span></label>
+      <input type="range" id="brightnessThreshold" min="0" max="255" value="250">
+    </div>
+    <div class="slider-container">
+      <label for="volumeThreshold">Volume Threshold: <span id="volumeValue">15</span></label>
+      <input type="range" id="volumeThreshold" min="0" max="100" value="15">
+    </div>
+  </div>
+  <div id="meters">
+    <div class="meter-container">
+      <div>Brightness Level</div>
+      <div class="meter" id="brightnessMeter">
+        <div class="meter-fill" id="brightnessFill"></div>
+        <div class="meter-threshold" id="brightnessMeterThreshold"></div>
+      </div>
+    </div>
+    <div class="meter-container">
+      <div>Volume Level</div>
+      <div class="meter" id="volumeMeter">
+        <div class="meter-fill" id="volumeFill"></div>
+        <div class="meter-threshold" id="volumeMeterThreshold"></div>
+      </div>
+    </div>
+  </div>
   <div id="deltaDisplay">Delta: -- ms</div>
 </div>
 
@@ -77,6 +150,16 @@ let canvas = document.getElementById('videoCanvas');
 let deltaDisplay = document.getElementById('deltaDisplay');
 let startButton = document.getElementById('startButton');
 let crosshair = document.getElementById('crosshair');
+
+let brightnessThresholdInput = document.getElementById('brightnessThreshold');
+let volumeThresholdInput = document.getElementById('volumeThreshold');
+let brightnessValueDisplay = document.getElementById('brightnessValue');
+let volumeValueDisplay = document.getElementById('volumeValue');
+
+let brightnessMeterFill = document.getElementById('brightnessFill');
+let volumeMeterFill = document.getElementById('volumeFill');
+let brightnessMeterThreshold = document.getElementById('brightnessMeterThreshold');
+let volumeMeterThreshold = document.getElementById('volumeMeterThreshold');
 
 let videoStream;
 let audioContext;
@@ -88,6 +171,9 @@ let lastFlashTime = null;
 let lastBeepTime = null;
 
 let running = false;
+
+let brightnessThreshold = parseInt(brightnessThresholdInput.value);
+let volumeThreshold = parseInt(volumeThresholdInput.value);
 
 startButton.addEventListener('click', async () => {
   if (!running) {
@@ -103,6 +189,28 @@ startButton.addEventListener('click', async () => {
     running = false;
   }
 });
+
+brightnessThresholdInput.addEventListener('input', () => {
+  brightnessThreshold = parseInt(brightnessThresholdInput.value);
+  brightnessValueDisplay.textContent = brightnessThreshold;
+  updateBrightnessThresholdMeter();
+});
+
+volumeThresholdInput.addEventListener('input', () => {
+  volumeThreshold = parseInt(volumeThresholdInput.value);
+  volumeValueDisplay.textContent = volumeThreshold;
+  updateVolumeThresholdMeter();
+});
+
+function updateBrightnessThresholdMeter() {
+  let meterWidth = document.getElementById('brightnessMeter').offsetWidth;
+  brightnessMeterThreshold.style.left = (brightnessThreshold / 255) * meterWidth - 1 + 'px';
+}
+
+function updateVolumeThresholdMeter() {
+  let meterWidth = document.getElementById('volumeMeter').offsetWidth;
+  volumeMeterThreshold.style.left = (volumeThreshold / 100) * meterWidth - 1 + 'px';
+}
 
 async function startApp() {
   try {
@@ -170,8 +278,12 @@ function processVideoFrame() {
   }
   let avgBrightness = sum / (pixels.length / 4);
 
+  // Update brightness meter
+  let brightnessPercent = (avgBrightness / 255) * 100;
+  brightnessMeterFill.style.width = brightnessPercent + '%';
+
   // Threshold detection
-  if (avgBrightness > 250) {
+  if (avgBrightness > brightnessThreshold) {
     let currentTime = performance.now();
     if (!lastFlashTime || currentTime - lastFlashTime > 500) { // Debounce
       lastFlashTime = currentTime;
@@ -194,8 +306,12 @@ function processAudioFrame() {
   }
   let avgVolume = sum / dataArray.length;
 
+  // Update volume meter
+  let volumePercent = (avgVolume / 128) * 100;
+  volumeMeterFill.style.width = volumePercent + '%';
+
   // Threshold detection
-  if (avgVolume > 15) {
+  if (avgVolume > volumeThreshold) {
     let currentTime = performance.now();
     if (!lastBeepTime || currentTime - lastBeepTime > 500) { // Debounce
       lastBeepTime = currentTime;
@@ -223,12 +339,16 @@ function indicateFlashDetection() {
 }
 
 function indicateBeepDetection() {
-  // Temporarily change background color to indicate beep detection
+  // Temporarily change delta display color
   deltaDisplay.style.color = 'yellow';
   setTimeout(() => {
     deltaDisplay.style.color = '#fff';
   }, 200);
 }
+
+// Initialize threshold meters
+updateBrightnessThresholdMeter();
+updateVolumeThresholdMeter();
 
 </script>
 
