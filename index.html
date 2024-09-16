@@ -282,8 +282,8 @@
   function setupAudioProcessing() {
     let source = audioContext.createMediaStreamSource(audioStream);
     analyser = audioContext.createAnalyser();
-    analyser.fftSize = 2048; // Increase fftSize for better waveform resolution
-    let bufferLength = analyser.fftSize;
+    analyser.fftSize = 256; // Match the fftSize used in the meter app
+    let bufferLength = analyser.frequencyBinCount;
     dataArray = new Uint8Array(bufferLength);
     source.connect(analyser);
 
@@ -336,19 +336,13 @@
 
   function processAudioFrame() {
     if (!running) return;
-    analyser.getByteTimeDomainData(dataArray);
+    analyser.getByteFrequencyData(dataArray);
 
-    // Calculate peak volume
-    let max = 0;
-    for (let i = 0; i < dataArray.length; i++) {
-      let sample = Math.abs(dataArray[i] - 128); // Center data around 0
-      if (sample > max) {
-        max = sample;
-      }
-    }
+    // Calculate maximum amplitude in frequency domain
+    let max = Math.max(...dataArray);
 
     // Normalize max value to 0 - 1 range
-    let normalizedVolume = max / 128;
+    let normalizedVolume = max / 255;
 
     // Update volume meter
     let volumePercent = normalizedVolume * 100;
@@ -369,12 +363,12 @@
     lastVolumeOverThreshold = volumeOverThreshold;
 
     // Draw waveform
-    drawWaveform();
+    drawWaveformFrequency();
 
     requestAnimationFrame(processAudioFrame);
   }
 
-  function drawWaveform() {
+  function drawWaveformFrequency() {
     // Set canvas dimensions
     waveformCanvas.width = waveformCanvas.offsetWidth;
     waveformCanvas.height = waveformCanvas.offsetHeight;
@@ -383,30 +377,19 @@
     waveformCtx.fillStyle = 'rgb(0, 0, 0)';
     waveformCtx.fillRect(0, 0, waveformCanvas.width, waveformCanvas.height);
 
-    // Draw waveform
-    waveformCtx.lineWidth = 2;
-    waveformCtx.strokeStyle = 'rgb(0, 255, 0)';
-
-    waveformCtx.beginPath();
-
-    let sliceWidth = waveformCanvas.width / dataArray.length;
+    // Draw frequency data
+    let barWidth = (waveformCanvas.width / dataArray.length) * 2.5;
+    let barHeight;
     let x = 0;
 
     for (let i = 0; i < dataArray.length; i++) {
-      let v = dataArray[i] / 255.0;
-      let y = v * waveformCanvas.height;
+      barHeight = dataArray[i] / 255 * waveformCanvas.height;
 
-      if (i === 0) {
-        waveformCtx.moveTo(x, y);
-      } else {
-        waveformCtx.lineTo(x, y);
-      }
+      waveformCtx.fillStyle = 'rgb(' + (barHeight + 50) + ',50,50)';
+      waveformCtx.fillRect(x, waveformCanvas.height - barHeight, barWidth, barHeight);
 
-      x += sliceWidth;
+      x += barWidth + 1;
     }
-
-    waveformCtx.lineTo(waveformCanvas.width, waveformCanvas.height / 2);
-    waveformCtx.stroke();
   }
 
   function calculateDelta() {
