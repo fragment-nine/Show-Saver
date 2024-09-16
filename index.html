@@ -205,7 +205,10 @@
   async function startMeasurement() {
     try {
       // Access camera and microphone
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: { exact: "environment" } }, // Use the rear camera
+        audio: true
+      });
 
       // Set up video
       videoElement.srcObject = stream;
