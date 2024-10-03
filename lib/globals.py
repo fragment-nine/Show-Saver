@@ -1,11 +1,11 @@
-v1l	9.0
-v1d	V1|||0x2100000534d2109|||0|||0|||USB Video
+v1l	0.0
+v1d	V1|||\\?\usb#vid_13d3&pid_56eb&mi_00#6&5308fd4&1&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global|||0|||0|||USB2.0 HD UVC WebCam
 a1l	default
-a1d	AppleUSBAudioEngine:ZOOM Corporation:AMS-24:100000:1,2
+a1d	default
 a2l	default
-a2d	AppleUSBAudioEngine:MACROSILICON:USB Video:2100000:3
+a2d	default
 a3l	default
-a3d	AppleUSBAudioEngine:ZOOM Corporation:AMS-24:100000:1,2
-postRoll	15
-outputFolder	/Users/f9/FragmentNine Dropbox/0 F9 Team/290_HU_Japan_24/01_Working/11_Recordings
-longPrefix	HU_
+a3d	default
+postRoll	5
+outputFolder	D:\FragmentNine Dropbox\Michael Hankowsky\24-124 Kintsugi\Production\Rehearsal Records
+longPrefix	CB_
