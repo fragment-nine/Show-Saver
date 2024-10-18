@@ -1,4 +1,4 @@
-v1l	14.0
+v1l	None
 v1d	None
 a1l	None
 a1d	None
@@ -9,3 +9,7 @@ a3d	None
 postRoll	15
 outputFolder	
 longPrefix	Long
+pgm	device1_chan1
+tc	device1_chan1
+pgmbu	device1_chan1
+tccompare	device1_chan1
