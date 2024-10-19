@@ -7,13 +7,11 @@
 # 
 # Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
 
-
-
 def onValueChange(channel, sampleIndex, val, prev):
-	op('/project1/start_stop/timer1').par.start.pulse()
-	op('/project1/start_stop/timer2').par.start.pulse()
-	op('/project1/start_stop/timer3').par.start.pulse()
-	op('/project1/start_stop/timer4').par.start.pulse()
-	return
-	
+    op('viewer').par.selectpanel = 'MAIN' if val == 0 else (
+        'AUDIO' if val == 1 else (
+        'LAYOUT' if val == 2 else (
+        'FILE' if val == 3 else 'DEFAULT')))
+    return
+
 	

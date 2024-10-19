@@ -1,8 +1,8 @@
 network_path	type	rel_file_path	timestamp	dirty
-/project1	container	lib/project1.tox	2024-08-26 10:30:11	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-09-05 16:18:02	False
-/SS_UI_v2	container	lib/SS_UI_v2.tox	2024-09-05 16:18:02	False
-/SS_UI_v2/UI_Main/left_data/0_record	container	lib/SS_UI_v2/UI_Main/left_data/0_record.tox	2024-09-05 16:18:02	False
+/project1	container	lib/project1.tox	2024-10-18 10:39:20	False
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-10-19 15:12:48	False
+/SS_UI_v2	container	lib/SS_UI_v2.tox	2024-10-18 10:10:50	False
+/SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-10-19 15:07:24	False
 /SS_UI_v2/UI_Main/left_data/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/0_track_master.tox	2024-09-05 16:18:02	False
 /project1/track_master	container	lib/project1/track_master.tox	2024-09-08 10:55:57	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString.tox	2024-09-05 16:18:02	False
@@ -54,7 +54,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/video_input	container	lib/project1/video_input.tox	2024-09-07 13:51:15	False
 /SS_UI_v2/UI_Main/left_data/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select.tox	2024-09-06 08:16:59	False
 /project1/deko	container	lib/project1/deko.tox	2024-09-08 06:25:56	False
-/SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-09-08 10:56:26	False
+/SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/1_input_select/opviewer1.tox	2024-09-05 16:18:02	False
 /SS_UI_v2/UI_Main/left_data/1_5_pg_select	container	lib/SS_UI_v2/UI_Main/left_data/1_5_pg_select.tox	2024-09-05 16:18:02	False
 /device_data	container	lib/device_data.tox	2024-09-05 16:18:02	False
@@ -81,3 +81,25 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectPGMBU/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectPGMBU/datexec1.py	2024-09-06 08:15:36	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTC/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTC/datexec1.py	2024-09-06 08:16:13	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTCCompare/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select/selectTCCompare/datexec1.py	2024-09-06 08:16:48	
+/SS_UI_v2/title	container	lib/SS_UI_v2/title.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/FILE	container	lib/SS_UI_v2/UI_Main/left_data/FILE.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/LAYOUT	container	lib/SS_UI_v2/UI_Main/left_data/LAYOUT.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/viewer	select	lib/SS_UI_v2/UI_Main/left_data/viewer.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2024-10-19 15:09:34	
+/SS_UI_v2/title	container	lib/SS_UI_v2/title.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/tc_wav	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/tc_wav.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/wavform_1.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/wavform_2.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/wavform_3.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/delay_ctrl.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/split_tc_pgm	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/split_tc_pgm.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/audio_routing.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/rec_indicator	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/rec_indicator.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	1600-12-31 18:12:16	False
