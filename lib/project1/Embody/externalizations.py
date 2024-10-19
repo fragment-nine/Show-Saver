@@ -1,9 +1,8 @@
 network_path	type	rel_file_path	timestamp	dirty
-/project1	container	lib/project1.tox	2024-10-18 10:39:20	False
+/project1	container	lib/project1.tox	2024-10-19 16:07:04	False
 /SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-10-19 15:12:48	False
 /SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-10-19 15:07:24	False
-/SS_UI_v2/UI_Main/left_data/0_track_master	container	lib/SS_UI_v2/UI_Main/left_data/0_track_master.tox	2024-09-05 16:18:02	False
-/project1/track_master	container	lib/project1/track_master.tox	1600-12-31 18:12:16	False
+/project1/track_master	container	lib/project1/track_master.tox	2024-10-19 16:05:42	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString.tox	2024-09-05 16:18:02	False
 /project1/files_out	container	lib/project1/files_out.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/title/right	container	lib/SS_UI_v2/title/right.tox	2024-08-26 10:30:11	False
@@ -70,7 +69,6 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/start_stop/startLTC	chopexec	lib/project1/start_stop/startLTC.py	2023-12-29 14:58:39	
 /project1/Embody/externalizations	table	lib/project1/Embody/externalizations.py	2023-12-29 14:57:55	
 /SS_UI_v2/UI_Main/left_data/1_input_select/input_select	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select/input_select.tox	1601-01-01 07:39:34	False
-/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldString.tox	1601-01-01 07:39:34	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldFolderBrowser	widget	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data/fieldFolderBrowser.tox	1601-01-01 07:39:34	False
 /SS_UI_v2/UI_Main/left_data/1_input_select/device_data	container	lib/SS_UI_v2/UI_Main/left_data/1_input_select/device_data.tox	1601-01-01 07:39:34	False
 /device_data/text1	text	lib/device_data/text1.py	2024-08-20 20:32:03	
