@@ -14,7 +14,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/start_stop/startLTC	chopexec	lib/project1/start_stop/startLTC.py	2023-12-29 14:58:39	
 /project1/start_stop/tools	execute	lib/project1/start_stop/tools.py	2023-12-29 15:01:36	
 /project1/start_stop/trigExecute	chopexec	lib/project1/start_stop/trigExecute.py	2023-12-29 15:01:36	
-/project1/track_master	container	lib/project1/track_master.tox	2024-10-19 16:05:42	False
+/project1/track_master	container	lib/project1/track_master.tox	2024-10-20 10:19:17	False
 /project1/track_master/constants	table	lib/project1/track_master/constants.dat	2024-08-18 12:22:56	
 /project1/track_master/process_cell_update	datexec	lib/project1/track_master/process_cell_update.py	2024-08-18 12:31:54	
 /project1/track_master/reloadLTCExecute	chopexec	lib/project1/track_master/reloadLTCExecute.py	2024-08-18 12:21:36	
@@ -32,7 +32,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	1600-12-31 18:12:16	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-10-19 15:12:48	False
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-10-20 10:30:15	False
 /SS_UI_v2/UI_Main/left_data/AUDIO	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO.tox	2024-10-20 09:34:09	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/audio_routing.tox	2024-10-19 15:47:12	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/audio_routing.tox	1600-12-31 18:12:16	False
@@ -101,15 +101,26 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/opviewer1.tox	2024-10-20 09:21:40	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/device_data	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/device_data.tox	2024-10-20 09:21:40	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC.tox	2024-10-20 09:22:02	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select.tox	2024-10-20 09:37:51	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1.tox	2024-10-20 09:22:02	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1.tox	2024-10-20 10:27:21	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2.tox	2024-10-20 09:22:02	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3.tox	2024-10-20 09:22:02	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGM	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGM.tox	2024-10-20 09:22:02	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGMBU	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGMBU.tox	2024-10-20 09:22:02	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare.tox	2024-10-20 09:22:02	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select.tox	2024-10-20 09:57:47	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select.tox	2024-10-20 09:26:57	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3.tox	2024-10-20 10:28:02	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGM	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGM.tox	2024-10-20 10:22:01	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGMBU	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGMBU.tox	2024-10-20 10:24:08	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare.tox	2024-10-20 10:25:20	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select.tox	2024-10-20 10:30:15	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select.tox	2024-10-20 10:30:15	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio/selectExecute	datexec	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio/selectExecute.py	2024-10-20 09:32:37	
 /SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio.tox	1600-12-31 18:12:16	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGM/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGM/datexec1.py	2024-10-20 10:21:08	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGMBU/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGMBU/datexec1.py	2024-10-20 10:22:49	
+/project1/Embody/tagging_menu/button1	button	lib/project1/Embody/tagging_menu/button1.tox	2024-10-20 10:24:11	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC/datexec1.py	2024-10-20 10:24:18	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare/datexec1.py	2024-10-20 10:25:04	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC.tox	2024-10-20 10:25:08	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec1.py	2024-10-20 10:27:21	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec2.py	2024-10-20 10:27:21	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec1.py	2024-10-20 10:28:02	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1/datexec2.py	2024-10-20 10:28:02	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2/datexec1.py	2024-10-20 10:28:02	
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2/datexec2.py	2024-10-20 10:28:02	
