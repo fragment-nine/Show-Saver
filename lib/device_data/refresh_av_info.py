@@ -11,9 +11,11 @@ import text1
 
 def onOffToOn(channel, sampleIndex, val, prev):
 	text1.updateLibraryTable()
-	text1.updateDeviceTable()
+	text1.updateaDeviceTable(1)  # For audiodevin2
+	text1.updateaDeviceTable(2)  # For audiodevin3
+	text1.updateaDeviceTable(3)  # For audiodevin4
 	text1.updateaLibraryTable()
-	text1.updateaDeviceTable()
+	text1.updateDeviceTable()
 	text1.updateaoLibraryTable()
 	text1.updateaoDeviceTable()
 	return
