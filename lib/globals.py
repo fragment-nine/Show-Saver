@@ -6,8 +6,12 @@ a2l	None
 a2d	None
 a3l	None
 a3d	None
+aol	None
+aod	None
 postRoll	15
-outputFolder	
+outputFolder	.
+pgmFolder	.
+wavFolder	.
 longPrefix	Long
 pgm	device1_chan1
 tc	device1_chan1
