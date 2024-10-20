@@ -15,7 +15,7 @@ def onTableChange(dat):
 	return
 
 def onRowChange(dat, rows):
-	op('/globals')['a1d',1]=dat[1,0]
+	op('/globals')['a3d',1]=dat[1,0]
 	return
 
 def onColChange(dat, cols):
