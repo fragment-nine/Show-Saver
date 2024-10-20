@@ -1,5 +1,5 @@
 network_path	type	rel_file_path	timestamp	dirty
-/device_data	container	lib/device_data.tox	2024-10-20 09:26:12	False
+/device_data	container	lib/device_data.tox	2024-10-20 09:32:30	False
 /device_data/refresh_av_info	chopexec	lib/device_data/refresh_av_info.py	2024-08-20 20:38:02	
 /device_data/text1	text	lib/device_data/text1.py	2024-08-20 20:32:03	
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
@@ -44,7 +44,6 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/AUDIO/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/delay_ctrl.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/delay_ctrl.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio.tox	2024-10-20 09:28:41	False
-/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio.tox	1600-12-31 18:12:16	False
 /SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio	container	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio.tox	1600-12-31 18:12:16	False
@@ -103,7 +102,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/opviewer1.tox	2024-10-20 09:21:40	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/device_data	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/device_data.tox	2024-10-20 09:21:40	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC.tox	2024-10-20 09:22:02	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select.tox	2024-10-20 09:22:02	False
+/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select.tox	2024-10-20 09:32:30	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select1.tox	2024-10-20 09:22:02	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select2.tox	2024-10-20 09:22:02	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3.tox	2024-10-20 09:22:02	False
@@ -112,3 +111,4 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare.tox	2024-10-20 09:22:02	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select.tox	2024-10-20 09:26:47	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select.tox	2024-10-20 09:26:57	False
+/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio/selectExecute	datexec	lib/SS_UI_v2/UI_Main/left_data/AUDIO/headphone_audio/selectExecute.py	2024-10-20 09:32:37	
