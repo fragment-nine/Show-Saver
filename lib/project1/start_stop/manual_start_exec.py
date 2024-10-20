@@ -9,15 +9,8 @@
 import startLTC
 import os
 def onOffToOn(channel, sampleIndex, val, prev):
-	date=startLTC.getDate()
-	time=startLTC.getTime()
-	name=op('name')
-	startLTC.makeFolders(date)
-	track=parent.Project.par.Nonltctrackname
-	name[0,0]=date+r'/'+ track +'_'+date+'_'+time
-	name[1,0]=track
-	name[2,0]=date+'_'+time
-	print('Started Manually')
+	startLTC.manualStart()
+	op('/project1/start_stop/manualStart').par.const0value=0
 	return
 
 def whileOn(channel, sampleIndex, val, prev):

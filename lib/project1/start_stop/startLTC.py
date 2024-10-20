@@ -52,3 +52,21 @@ def onValueChange(channel, sampleIndex, val, prev):
 	name[2,0]=date+'_'+time
 
 	return
+
+def manualStart():
+	trackMaster=op('/project1/track_master/trackMaster')
+	name=op('../track_master/name')
+	ltc=op('ltcin1')
+
+	date=getDate()
+	time=getTime()
+
+	song="Manual Start"
+
+	makeFolders(date)
+
+	name[0,0]=date+r'/'+song+'_'+date+'_'+time
+	name[1,0]=song
+	name[2,0]=date+'_'+time
+
+	return

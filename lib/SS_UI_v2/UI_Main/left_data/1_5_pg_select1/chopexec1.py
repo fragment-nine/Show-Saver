@@ -14,6 +14,7 @@ def onValueChange(channel, sampleIndex, val, prev):
 	op('/project1/start_stop/timer2').par.start.pulse()
 	op('/project1/start_stop/timer3').par.start.pulse()
 	op('/project1/start_stop/timer4').par.start.pulse()
+	op('/project1/start_stop/manualStart').par.const0value=1
 	return
 	
 	
