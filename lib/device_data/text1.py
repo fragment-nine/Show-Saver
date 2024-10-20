@@ -51,6 +51,31 @@ def updateaDeviceTable():
         adeviceTable.appendRow([value, label])
     adeviceTable.appendRow(["None", "None"])
 
+# Get Handle to the Operators
+audioOutDevice = op('audiodevout1')
+aolibraryTable = op('aOutLibrary')
+aodeviceTable = op('aOutDevice')
+
+# Function that handles library changes
+def updateaoLibraryTable():
+    aolibraryParam = audioOutDevice.par.driver
+    aolibraryTable.clear()
+
+    for label, value in zip(aolibraryParam.menuLabels, aolibraryParam.menuNames):
+        aolibraryTable.appendRow([value, label])
+    aolibraryTable.appendRow(["None", "None"])
+
+# Function that handles device changes
+def updateaoDeviceTable():
+    aodeviceParam = audioOutDevice.par.device
+    aodeviceTable.clear()
+
+    for label, value in zip(aodeviceParam.menuLabels, aodeviceParam.menuNames):
+        aodeviceTable.appendRow([value, label])
+    aodeviceTable.appendRow(["None", "None"])
+
 # Update the tables initially
 updateaLibraryTable()
 updateaDeviceTable()
+updateaoLibraryTable()
+updateaoDeviceTable()

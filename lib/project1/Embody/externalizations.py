@@ -1,5 +1,5 @@
 network_path	type	rel_file_path	timestamp	dirty
-/device_data	container	lib/device_data.tox	2024-10-19 16:04:51	False
+/device_data	container	lib/device_data.tox	2024-10-20 09:26:12	False
 /device_data/refresh_av_info	chopexec	lib/device_data/refresh_av_info.py	2024-08-20 20:38:02	
 /device_data/text1	text	lib/device_data/text1.py	2024-08-20 20:32:03	
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
