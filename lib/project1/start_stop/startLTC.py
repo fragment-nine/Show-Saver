@@ -10,16 +10,30 @@ import os
 import tools
 
 def makeFolders(date):
-	path=str(op('/globals')['outputFolder',1]) +'/'+date
-	longPath=str(op('/globals')['outputFolder',1]) +'/Long Recordings/'+date
+    # Pull each global individually
+    outputFolder = str(op('/globals')['outputFolder', 1])
+    pgmFolder = str(op('/globals')['pgmFolder', 1])
+    wavFolder = str(op('/globals')['wavFolder', 1])
+    
+    # Define a list of folders to process
+    folderPaths = [outputFolder, pgmFolder, wavFolder]
+    
+    # Loop through each folder path and create directories
+    for basePath in folderPaths:
+        path = basePath + '/' + date
+        longPath = basePath + '/Long Recordings/' + date
 
-	if not os.path.exists(path):
-		os.makedirs(path)
-		print("The new directory is created!")
-	if not os.path.exists(longPath):
-		os.makedirs(longPath)
-		print("The new directory is created!")
-	return
+        # Create the main folder if it doesn't exist
+        if not os.path.exists(path):
+            os.makedirs(path)
+            print(f"The new directory is created: {path}")
+        
+        # Create the 'Long Recordings' folder if it doesn't exist
+        if not os.path.exists(longPath):
+            os.makedirs(longPath)
+            print(f"The new directory is created: {longPath}")
+    
+    return
 
 def getDate():
 	date=str('{0:02d}'.format(int(op('clock')['year'])))+str('{0:02d}'.format(int(op('clock')['month'])))+str('{0:02d}'.format(int(op('clock')['day'])))
