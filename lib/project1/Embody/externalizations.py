@@ -6,10 +6,10 @@ network_path	type	rel_file_path	timestamp	dirty
 /onStart	execute	lib/onStart.py	2024-08-27 05:58:33	
 /project1	container	lib/project1.tox	2024-10-19 16:13:13	False
 /project1/audio_input	container	lib/project1/audio_input.tox	2024-10-20 09:37:51	False
-/project1/deko	container	lib/project1/deko.tox	2024-10-19 16:04:51	False
+/project1/deko	container	lib/project1/deko.tox	2024-10-20 12:03:21	False
 /project1/Embody/externalizations	table	lib/project1/Embody/externalizations.py	2023-12-29 14:57:55	
 /project1/files_out	container	lib/project1/files_out.tox	2024-10-20 09:47:23	False
-/project1/start_stop	container	lib/project1/start_stop.tox	2024-10-18 10:39:20	False
+/project1/start_stop	container	lib/project1/start_stop.tox	2024-10-20 12:03:21	False
 /project1/start_stop/manual_start_exec	chopexec	lib/project1/start_stop/manual_start_exec.py	2023-12-29 15:01:36	
 /project1/start_stop/startLTC	chopexec	lib/project1/start_stop/startLTC.py	2023-12-29 14:58:39	
 /project1/start_stop/tools	execute	lib/project1/start_stop/tools.py	2023-12-29 15:01:36	
@@ -126,3 +126,4 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vL_Execute1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vL_Execute1.py	2024-10-20 10:37:06	
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3/datexec1.py	2024-10-20 10:39:34	
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3/datexec2.py	2024-10-20 10:39:43	
+/project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
