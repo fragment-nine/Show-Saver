@@ -19,7 +19,10 @@ def onStart():
 	op('/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectPGMBU').par.Value0=globals['pgmbu',1]
 	op('/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTC').par.Value0=globals['tc',1]
 	op('/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/selectTCCompare').par.Value0=globals['tccompare',1]
-	print(globals['a1l',1])
+	op('/SS_UI_v2/UI_Main/left_data/AUDIO/tc_wav/fieldFolderBrowser').par.Value0=globals['wavFolder',1]
+	op('/SS_UI_v2/UI_Main/left_data/AUDIO/split_tc_pgm/ltcFolderBrowser').par.Value0=globals['outputFolder',1]
+	op('/SS_UI_v2/UI_Main/left_data/AUDIO/split_tc_pgm/pgmFolderBrowser').par.Value0=globals['pgmFolder',1]
+	
 	return
 
 def onCreate():
