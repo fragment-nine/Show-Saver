@@ -246,3 +246,4 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/a_select3/datexec2.py	2024-10-20 10:39:43	
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
 >>>>>>> Stashed changes				
+/project1/screenshot	container	lib/project1/screenshot.tox	1600-12-31 18:12:16	False
