@@ -83,3 +83,8 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2024-10-21 08:10:59	False
 /SS_UI_v2/UI_Main/left_data/viewer	select	lib/SS_UI_v2/UI_Main/left_data/viewer.tox	2024-10-21 08:10:59	False
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-10-21 08:10:59	False
+/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/select1	select	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/select1.tox	2024-10-21 08:21:04	False
+/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/tc_compare	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/tc_compare.tox	2024-10-21 08:21:04	False
+/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct.tox	2024-10-21 08:24:04	False
+/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/TOP	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/TOP.tox	2024-10-21 08:24:04	False
+/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/container1	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/container1.tox	2024-10-21 08:24:04	False
