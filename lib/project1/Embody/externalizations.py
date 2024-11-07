@@ -5,7 +5,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
 /onStart	execute	lib/onStart.py	2024-08-27 05:58:33	
 /project1	container	lib/project1.tox	2024-10-22 14:17:04	False
-/project1/audio_input	container	lib/project1/audio_input.tox	2024-10-29 09:34:19	False
+/project1/audio_input	container	lib/project1/audio_input.tox	2024-11-07 09:18:54	False
 /project1/deko	container	lib/project1/deko.tox	2024-10-22 14:17:04	False
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
 /project1/Embody/externalizations	table	lib/project1/Embody/externalizations.py	2023-12-29 14:57:55	
@@ -27,16 +27,16 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-10-22 14:17:04	False
 /SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	2024-11-06 15:44:11	False
 /SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-06 15:44:12	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-06 15:44:12	True
+/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-10-29 09:34:19	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-10-29 09:34:19	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-10-29 09:34:19	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm.tox	2024-10-29 15:04:55	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2024-11-06 15:44:12	True
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2024-11-06 15:44:12	True
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2024-11-06 15:44:12	True
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2024-11-07 09:18:54	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2024-11-07 09:18:54	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2024-10-19 15:09:34	
 /SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2024-10-29 09:34:19	False
-/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-06 16:15:54	True
+/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-10-22 14:17:04	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vD_Execute	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vD_Execute.py	2024-10-19 15:54:01	
 /SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	2024-10-29 12:02:48	False
@@ -55,3 +55,6 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/view_select/radioButtons0	container	lib/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0.tox	2024-10-28 10:10:30	False
 /SS_UI_v2/UI_Main/left_data/VIDEO/ROI	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/ROI.tox	2024-10-29 16:03:25	False
 /SS_UI_v2/UI_Main/left_data/VIDEO/codec	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/codec.tox	2024-10-29 15:50:28	False
+/SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu.tox	2024-11-07 09:22:05	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1.tox	2024-11-07 09:18:53	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select.tox	2024-11-07 09:18:53	False
