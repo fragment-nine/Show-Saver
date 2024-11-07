@@ -25,18 +25,18 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/track_master/trackMasterRaw	table	lib/project1/track_master/trackMasterRaw.csv	2024-08-18 12:21:36	
 /project1/video_input	container	lib/project1/video_input.tox	2024-10-22 14:17:04	False
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-10-22 14:17:04	False
-/SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	2024-10-29 16:18:59	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-10-29 16:18:06	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-10-29 09:34:19	False
+/SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	2024-11-06 15:44:11	False
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-06 15:44:12	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-06 15:44:12	True
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-10-29 09:34:19	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-10-29 09:34:19	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm.tox	2024-10-29 15:04:55	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2024-10-29 14:27:27	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2024-10-29 14:27:27	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2024-10-29 14:36:37	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2024-11-06 15:44:12	True
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2024-11-06 15:44:12	True
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2024-11-06 15:44:12	True
 /SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2024-10-19 15:09:34	
 /SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2024-10-29 09:34:19	False
-/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-10-29 15:04:54	False
+/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-06 16:15:54	True
 /SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-10-22 14:17:04	False
 /SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vD_Execute	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vD_Execute.py	2024-10-19 15:54:01	
 /SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	2024-10-29 12:02:48	False
