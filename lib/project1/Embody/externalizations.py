@@ -67,3 +67,6 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1.py	2024-11-08 14:58:01	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1.py	2024-11-08 14:58:01	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER	slider	lib/SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction.tox	1600-12-31 19:06:51	False
