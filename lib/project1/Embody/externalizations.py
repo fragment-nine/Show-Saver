@@ -1,7 +1,7 @@
 network_path	type	rel_file_path	timestamp	dirty
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
 /onStart	execute	lib/onStart.py	2024-08-27 05:58:33	
-/project1	container	lib/project1.tox	2024-11-08 14:40:28	False
+/project1	container	lib/project1.tox	2024-11-08 15:13:27	False
 /project1/audio_input	container	lib/project1/audio_input.tox	2024-11-08 15:06:17	False
 /project1/deko	container	lib/project1/deko.tox	2024-11-08 15:09:36	False
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
@@ -35,39 +35,32 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2024-11-08 14:40:46	False
 /SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-08 14:40:46	False
 /SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-11-08 14:40:28	False
-/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vD_Execute	datexec	lib/SS_UI_v2/UI_Main/left_data/MAIN/1_input_select/input_select/v_select/vD_Execute.py	2024-10-19 15:54:01	
-/SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	2024-10-29 12:02:48	False
-/SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2024-10-28 10:10:30	False
-/SS_UI_v2/UI_Main/left_data/viewer	select	lib/SS_UI_v2/UI_Main/left_data/viewer.tox	2024-10-22 16:17:04	False
-/SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-10-22 16:17:04	False
-/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/TOP	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/TOP.tox	1600-12-31 18:12:16	False
-/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/container1	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct/container1.tox	1600-12-31 18:12:16	False
-/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/select1	select	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/select1.tox	1600-12-31 18:12:16	False
-/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/tc_compare	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/tc_compare.tox	1600-12-31 18:12:16	False
-/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/3_cc_delay/color_correct.tox	1600-12-31 18:12:16	False
-/device_data	container	lib/device_data.tox	1600-12-31 18:12:16	False
-/SS_UI_v2/UI_Main/left_data/MAIN/help_me	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/help_me.tox	2024-10-22 15:39:56	False
-/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0/radio2/text	text	lib/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0/radio2/text.tox	2024-10-22 16:10:24	False
+/SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/viewer	select	lib/SS_UI_v2/UI_Main/left_data/viewer.tox	2024-11-08 14:40:28	False
+/SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2024-11-08 14:40:28	False
+/SS_UI_v2/UI_Main/left_data/MAIN/help_me	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/help_me.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0/radio2/text	text	lib/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0/radio2/text.tox	2024-11-08 14:40:46	False
 /SS_UI_v2/UI_Main/left_data/view_select/radioButtons0/radio2/text	text	lib/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0/radio2/text.tox	2024-10-22 16:19:18	False
-/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0	container	lib/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0.tox	2024-10-28 10:10:30	False
-/SS_UI_v2/UI_Main/left_data/VIDEO/ROI	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/ROI.tox	2024-10-29 16:03:25	False
-/SS_UI_v2/UI_Main/left_data/VIDEO/codec	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/codec.tox	2024-10-29 15:50:28	False
-/SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu.tox	2024-11-07 09:22:05	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1.tox	2024-11-07 09:18:53	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select.tox	2024-11-07 09:18:53	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0	container	lib/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/ROI	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/ROI.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/codec	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/codec.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select.tox	2024-11-08 14:40:46	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC.tox	2024-11-08 14:44:28	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select.tox	2024-11-08 15:03:03	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1.tox	2024-11-08 15:03:03	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM.tox	2024-11-08 14:44:28	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU.tox	2024-11-08 14:44:28	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare.tox	2024-11-08 14:44:28	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2.tox	2024-11-08 14:57:04	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3.tox	2024-11-08 14:57:04	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1/datexec1.py	2024-11-08 14:58:01	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1.py	2024-11-08 14:58:01	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1.py	2024-11-08 14:58:01	
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER	slider	lib/SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/brightness_slider	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/brightness_slider.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/saturation_slider	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/saturation_slider.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select.tox	2024-11-08 15:06:33	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc.tox	2024-11-08 15:07:16	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER	slider	lib/SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER.tox	2024-11-08 15:07:16	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/brightness_slider	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/brightness_slider.tox	2024-11-08 15:09:00	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/saturation_slider	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/saturation_slider.tox	2024-11-08 15:09:00	False
