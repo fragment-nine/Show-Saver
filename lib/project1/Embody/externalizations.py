@@ -1,9 +1,8 @@
 network_path	type	rel_file_path	timestamp	dirty
-/device_data/refresh_av_info	chopexec	lib/device_data/refresh_av_info.py	2024-08-20 20:38:02	
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
 /onStart	execute	lib/onStart.py	2024-08-27 05:58:33	
 /project1	container	lib/project1.tox	2024-11-08 14:40:28	False
-/project1/audio_input	container	lib/project1/audio_input.tox	2024-11-08 14:40:46	False
+/project1/audio_input	container	lib/project1/audio_input.tox	2024-11-08 15:06:17	False
 /project1/deko	container	lib/project1/deko.tox	2024-11-08 14:40:28	False
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
 /project1/Embody/externalizations	table	lib/project1/Embody/externalizations.py	2023-12-29 14:57:55	
@@ -59,7 +58,6 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC.tox	1600-12-31 19:06:51	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select.tox	1600-12-31 19:06:51	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select4	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select4.tox	1600-12-31 19:06:51	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM.tox	1600-12-31 19:06:51	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU.tox	1600-12-31 19:06:51	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare.tox	1600-12-31 19:06:51	False
@@ -68,3 +66,4 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1/datexec1.py	2024-11-08 14:58:01	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1.py	2024-11-08 14:58:01	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1.py	2024-11-08 14:58:01	
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select.tox	1600-12-31 19:06:51	False
