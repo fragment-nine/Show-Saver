@@ -1,11 +1,11 @@
 v1l	None
-v1d	None
-a1l	None
-a1d	None
-a2l	None
-a2d	None
+v1d	V1|||2|||2|||0|||NotchCam
+a1l	default
+a1d	{0.0.1.00000000}.{deafa907-bbcf-4db7-93e2-26fa7779782d}||Microphone_(Yeti_Stereo_Microphone)||8
+a2l	default
+a2d	{0.0.1.00000000}.{bb00c978-a7db-4fe6-b0ea-751233a5297a}||Microphone_Array_(Realtek(R)_Audio)||6
 a3l	None
-a3d	None
+a3d	{0.0.1.00000000}.{93aed33f-4438-45ce-b0f9-b8a540a791ee}||Input_terminal_(Mic-j5_WebCam_JVCU100)||1
 aol	None
 aod	None
 postRoll	15

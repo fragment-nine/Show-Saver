@@ -9,8 +9,8 @@
 
 def onValueChange(channel, sampleIndex, val, prev):
     op('viewer').par.selectpanel = 'MAIN' if val == 0 else (
-        'AUDIO' if val == 1 else (
-        'LAYOUT' if val == 2 else (
+        'SETTINGS' if val == 1 else (
+        'VIDEO' if val == 2 else (
         'FILE' if val == 3 else 'DEFAULT')))
     return
 
