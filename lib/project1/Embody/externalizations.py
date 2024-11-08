@@ -3,7 +3,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /onStart	execute	lib/onStart.py	2024-08-27 05:58:33	
 /project1	container	lib/project1.tox	2024-11-08 14:40:28	False
 /project1/audio_input	container	lib/project1/audio_input.tox	2024-11-08 15:06:17	False
-/project1/deko	container	lib/project1/deko.tox	2024-11-08 14:40:28	False
+/project1/deko	container	lib/project1/deko.tox	2024-11-08 15:09:36	False
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
 /project1/Embody/externalizations	table	lib/project1/Embody/externalizations.py	2023-12-29 14:57:55	
 /project1/Embody/tagging_menu/button1	button	lib/project1/Embody/tagging_menu/button1.tox	2024-11-08 14:40:28	False
@@ -69,4 +69,5 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/ndi_select.tox	1600-12-31 19:06:51	False
 /SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/reset_cc.tox	1600-12-31 19:06:51	False
 /SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER	slider	lib/SS_UI_v2/UI_Main/left_data/VIDEO/COLORPICKER.tox	1600-12-31 19:06:51	False
-/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/brightness_slider	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/brightness_slider.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/saturation_slider	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/Color_Correction/saturation_slider.tox	1600-12-31 19:06:51	False
