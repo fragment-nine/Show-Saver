@@ -1,5 +1,5 @@
 network_path	type	rel_file_path	timestamp	dirty
-/device_data	container	lib/device_data.tox	2024-11-08 14:40:46	False
+/device_data	container	lib/device_data.tox	2024-11-08 14:44:28	False
 /device_data/refresh_av_info	chopexec	lib/device_data/refresh_av_info.py	2024-08-20 20:38:02	
 /device_data/text1	text	lib/device_data/text1.py	2024-08-20 20:32:03	
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
@@ -58,3 +58,12 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/vertical_vu.tox	2024-11-07 09:22:05	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/container1.tox	2024-11-07 09:18:53	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select.tox	2024-11-07 09:18:53	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select4	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select4.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU.tox	1600-12-31 19:06:51	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare.tox	1600-12-31 19:06:51	False
