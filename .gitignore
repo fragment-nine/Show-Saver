@@ -8,4 +8,4 @@ test/*
 lib/globals.py
 screenshot.png
 ShowSaver.*.toe
-lib/globals.py
+lib/globals.p*
