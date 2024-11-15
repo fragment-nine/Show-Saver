@@ -1,12 +1,12 @@
 network_path	type	rel_file_path	timestamp	dirty
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
 /onStart	execute	lib/onStart.py	2024-08-27 05:58:33	
-/project1	container	lib/project1.tox	2024-11-15 14:05:29	False
+/project1	container	lib/project1.tox	2024-11-15 14:13:24	False
 /project1/audio_input	container	lib/project1/audio_input.tox	2024-11-15 13:10:58	False
 /project1/deko	container	lib/project1/deko.tox	2024-11-15 13:10:58	False
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
 /project1/Embody/externalizations	table	lib/project1/Embody/externalizations.py	2023-12-29 14:57:55	
-/project1/Embody/tagging_menu/button1	button	lib/project1/Embody/tagging_menu/button1.tox	2024-10-22 14:17:04	False
+/project1/Embody/tagging_menu/button1	button	lib/project1/Embody/tagging_menu/button1.tox	2024-11-15 14:26:42	False
 /project1/files_out	container	lib/project1/files_out.tox	2024-10-22 14:17:04	False
 /project1/screenshot	container	lib/project1/screenshot.tox	2024-11-15 13:10:58	False
 /project1/start_stop	container	lib/project1/start_stop.tox	2024-11-15 13:10:58	False
@@ -26,7 +26,7 @@ network_path	type	rel_file_path	timestamp	dirty
 <<<<<<< Updated upstream				
 /SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 14:11:54	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-15 14:11:55	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-11-15 13:27:55	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-11-15 14:30:06	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 14:11:55	False
 =======				
 /SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 14:02:43	False
@@ -41,7 +41,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2024-10-19 15:09:34	
 /SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2024-10-29 09:34:19	False
 <<<<<<< Updated upstream				
-/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 14:11:08	False
+/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 14:30:05	False
 =======				
 /SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 14:04:51	False
 >>>>>>> Stashed changes				
@@ -86,3 +86,8 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec2	chopexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec2.py	2024-11-15 10:04:20	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade.tox	2024-11-15 13:27:54	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade.tox	2024-11-15 14:11:08	False
+/SS_UI_v2/UI_Main/left_data/MAIN/headphone_vol/opviewer1	opviewer	lib/SS_UI_v2/UI_Main/left_data/MAIN/headphone_vol/opviewer1.tox	2024-11-15 14:26:42	False
+/project1/Embody/tagging_menu/button1	button	lib/project1/Embody/tagging_menu/button1.tox	2024-11-15 14:26:42	False
+/SS_UI_v2/UI_Main/left_data/MAIN/buttons	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/buttons.tox	2024-11-15 14:30:05	False
+/SS_UI_v2/UI_Main/left_data/MAIN/buttons/zero	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/buttons/zero.tox	2024-11-15 14:30:05	False
+/SS_UI_v2/UI_Main/left_data/MAIN/buttons/popout	widget	lib/SS_UI_v2/UI_Main/left_data/MAIN/buttons/popout.tox	2024-11-15 14:30:05	False
