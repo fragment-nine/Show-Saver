@@ -1,6 +1,6 @@
-v1	None
-v1l	None
-v1d	None
+v1	j5 WebCam JVCU100
+v1l	directshow
+v1d	V1|||\\?\usb#vid_12d1&pid_4321&mi_00#9&1350f74c&2&0000#{65e8773d-8f56-11d0-a3b9-00a0c9223196}\global|||0|||0|||j5 WebCam JVCU100
 a1	None
 a1l	None
 a1d	None
