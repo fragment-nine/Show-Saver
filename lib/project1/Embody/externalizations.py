@@ -26,8 +26,8 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 09:51:53	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-15 09:51:30	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-11-15 09:51:30	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 09:51:30	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm.tox	2024-11-15 09:51:30	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 10:04:20	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm.tox	2024-11-15 10:04:20	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2024-11-15 09:51:30	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2024-11-15 09:51:30	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2024-11-15 09:51:30	False
@@ -64,3 +64,8 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1/datexec1.py	2024-11-15 09:43:24	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select2/datexec1.py	2024-11-15 09:43:51	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select3/datexec1.py	2024-11-15 09:44:05	
+/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/datexec1	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/datexec1.py	2024-11-15 10:04:20	
+/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/datexec2	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/datexec2.py	2024-11-15 10:04:20	
+/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/datexec3	datexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/datexec3.py	2024-11-15 10:04:20	
+/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec1.py	2024-11-15 10:04:20	
+/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec2	chopexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec2.py	2024-11-15 10:04:20	
