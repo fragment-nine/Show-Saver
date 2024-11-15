@@ -23,17 +23,17 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/video_input	container	lib/project1/video_input.tox	2024-10-22 14:17:04	False
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-10-22 14:17:04	False
 /SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	2024-11-06 15:44:11	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 13:27:54	True
-/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-15 13:27:55	True
-/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-11-15 13:27:55	True
-/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 13:10:58	False
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 13:27:54	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-15 13:32:25	True
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-11-15 13:27:55	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 13:32:25	True
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm.tox	2024-11-15 13:10:58	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2024-10-19 15:09:34	
 /SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2024-10-29 09:34:19	False
-/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-07 09:18:54	False
+/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 13:31:56	False
 /SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-10-22 14:17:04	False
 /SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	2024-10-29 12:02:48	False
 /SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2024-10-29 09:34:21	False
