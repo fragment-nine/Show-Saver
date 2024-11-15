@@ -1,7 +1,7 @@
 network_path	type	rel_file_path	timestamp	dirty
 /globals	table	lib/globals.py	2023-12-29 15:01:36	
 /onStart	execute	lib/onStart.py	2024-08-27 05:58:33	
-/project1	container	lib/project1.tox	2024-11-15 13:10:58	False
+/project1	container	lib/project1.tox	2024-11-15 14:05:29	False
 /project1/audio_input	container	lib/project1/audio_input.tox	2024-11-15 13:10:58	False
 /project1/deko	container	lib/project1/deko.tox	2024-11-15 13:10:58	False
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2024-10-20 11:48:10	
@@ -23,17 +23,28 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/video_input	container	lib/project1/video_input.tox	2024-10-22 14:17:04	False
 /SS_UI_v2	container	lib/SS_UI_v2.tox	2024-10-22 14:17:04	False
 /SS_UI_v2/UI_Main	container	lib/SS_UI_v2/UI_Main.tox	2024-11-06 15:44:11	False
-/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 13:27:54	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-15 13:32:25	True
+<<<<<<< Updated upstream				
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 14:11:54	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-11-15 14:11:55	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-11-15 13:27:55	False
-/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 13:32:25	True
+/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 14:11:55	False
+=======				
+/SS_UI_v2/UI_Main/left_data	container	lib/SS_UI_v2/UI_Main/left_data.tox	2024-11-15 14:02:43	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS.tox	2024-10-29 09:34:19	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing.tox	2024-10-29 09:34:19	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/delay_ctrl.tox	2024-11-15 13:10:58	False
+>>>>>>> Stashed changes				
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm.tox	2024-11-15 13:10:58	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2024-11-07 09:18:54	False
 /SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2024-10-19 15:09:34	
 /SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2024-10-29 09:34:19	False
-/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 13:31:56	False
+<<<<<<< Updated upstream				
+/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 14:11:08	False
+=======				
+/SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 14:04:51	False
+>>>>>>> Stashed changes				
 /SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-10-22 14:17:04	False
 /SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	2024-10-29 12:02:48	False
 /SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2024-10-29 09:34:21	False
@@ -50,7 +61,11 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select.tox	2024-11-07 09:18:53	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC.tox	2024-11-15 13:10:58	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select.tox	2024-11-15 13:10:58	False
+<<<<<<< Updated upstream				
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1.tox	2024-11-15 13:10:58	False
+=======				
+/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1.tox	2024-11-15 14:02:43	False
+>>>>>>> Stashed changes				
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGM.tox	2024-11-15 13:10:58	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectPGMBU.tox	2024-11-15 13:10:58	False
 /SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTCCompare.tox	2024-11-15 13:10:58	False
@@ -70,3 +85,4 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec1.py	2024-11-15 10:04:20	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec2	chopexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec2.py	2024-11-15 10:04:20	
 /SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade.tox	2024-11-15 13:27:54	False
+/SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade	widget	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/headphone_select/sliderHorzXFade.tox	2024-11-15 14:11:08	False
