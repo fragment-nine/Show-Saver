@@ -9,7 +9,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /project1/Embody/tagging_menu/button1	button	lib/project1/Embody/tagging_menu/button1.tox	2024-11-15 09:47:49	False
 /project1/files_out	container	lib/project1/files_out.tox	2024-11-15 09:47:49	False
 /project1/screenshot	container	lib/project1/screenshot.tox	2024-11-15 09:58:43	False
-/project1/start_stop	container	lib/project1/start_stop.tox	2024-11-15 09:51:30	False
+/project1/start_stop	container	lib/project1/start_stop.tox	2024-11-15 10:12:37	False
 /project1/start_stop/manual_start_exec	chopexec	lib/project1/start_stop/manual_start_exec.py	2023-12-29 15:01:36	
 /project1/start_stop/startLTC	chopexec	lib/project1/start_stop/startLTC.py	2023-12-29 14:58:39	
 /project1/start_stop/tools	execute	lib/project1/start_stop/tools.py	2023-12-29 15:01:36	
@@ -34,7 +34,7 @@ network_path	type	rel_file_path	timestamp	dirty
 /SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2024-10-19 15:09:34	
 /SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2024-11-15 09:51:30	False
 /SS_UI_v2/UI_Main/left_data/MAIN	container	lib/SS_UI_v2/UI_Main/left_data/MAIN.tox	2024-11-15 09:51:30	False
-/SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	1600-12-31 18:12:17	True
+/SS_UI_v2/UI_Main/left_data/MAIN/0_record	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/0_record.tox	2024-11-15 09:47:49	False
 /SS_UI_v2/UI_Main/left_data/MAIN/action_button	container	lib/SS_UI_v2/UI_Main/left_data/MAIN/action_button.tox	2024-11-15 09:51:30	False
 /SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2024-11-15 09:51:30	False
 /SS_UI_v2/UI_Main/left_data/viewer	select	lib/SS_UI_v2/UI_Main/left_data/viewer.tox	2024-11-15 09:47:49	False
