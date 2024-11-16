@@ -1,11 +1,6 @@
-
 Backup/*
-lib/.DS_Store
-.DS_Store
-ShowRecorder.130.toe
-ShowRecorder.toe
+*.DS_Store
 test/*
 lib/globals.py
 screenshot.png
 ShowSaver.*.toe
-lib/globals.p*
