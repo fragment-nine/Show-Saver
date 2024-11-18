@@ -54,7 +54,7 @@ def onProjectPreSave():
 
     # Function to find all TOPs recursively
     def find_all_tops(op_path):
-        return [op for op in op(op_path).findChildren(type=COMP)]
+        return [op for op in op(op_path).findChildren()]
 
     # Iterate through all TOPs and store 'Value0' parameters
     for top in find_all_tops(comp_path):
