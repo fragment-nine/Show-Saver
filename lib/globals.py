@@ -1,9 +1,9 @@
-v1	None
-v1l	None
-v1d	None
-a1	None
-a1l	None
-a1d	None
+v1	label
+v1l	
+v1d	name
+a1	Dante Virtual Soundcard
+a1l	coreaudio
+a1d	AUDINATE-DVS-UID
 a2	None
 a2l	None
 a2d	None
@@ -14,11 +14,11 @@ ao	None
 aol	None
 aod	None
 postRoll	15
-outputFolder	.
-pgmFolder	.
-wavFolder	.
+outputFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/381_LG_Festivals_25/05_Rehearsal Recordings
+pgmFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/381_LG_Festivals_25/05_Rehearsal Recordings
+wavFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/381_LG_Festivals_25/05_Rehearsal Recordings
 longPrefix	Long
 pgm	device1_chan1
-tc	device1_chan1
+tc	device1_chan2
 pgmbu	device1_chan1
-tccompare	device1_chan1
+tccompare	device1_chan3
