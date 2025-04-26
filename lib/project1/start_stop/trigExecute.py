@@ -1,63 +1,95 @@
 # me - this DAT
 #
-# channel - the Channel object which has changed
-# sampleIndex - the index of the changed sample
-# val - the numeric value of the changed sample
-# prev - the previous sample value
+# channel       - the Channel object which has changed
+# sampleIndex   - the index of the changed sample
+# val           - the numeric value of the changed sample
+# prev          - the previous sample value
 #
 # Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
 
 import startLTC
-current_song=""
 
 def onOffToOn(channel, sampleIndex, val, prev):
-	return
+    pass
 
 def whileOn(channel, sampleIndex, val, prev):
-	return
+    pass
 
 def onOnToOff(channel, sampleIndex, val, prev):
-	return
+    pass
 
 def whileOff(channel, sampleIndex, val, prev):
-	return
+    pass
 
 def start():
-	op('timer1').par.start.pulse()
-	op('timer2').par.start.pulse()
+    op('timer1').par.start.pulse()
+    op('timer2').par.start.pulse()
 
 def stop():
-	op('timer1').par.initialize.pulse()
-	op('timer2').par.initialize.pulse()
+    op('timer1').par.initialize.pulse()
+    op('timer2').par.initialize.pulse()
 
 def onValueChange(channel, sampleIndex, val, prev):
-	if op('currentLTC')[1,0]==1:
-		op('currentLTC')[1,0]=0
-		startLTC.onValueChange(1,1,1,1)
-		start()
-	current=op('ltcin1')['total_seconds']
-	old=op('currentLTC')[0,0]
+    # Table DAT tracking [0]=last time, [1]=change‐flag
+    tbl = op('currentLTC')
 
-	# Check if the song has changed
-	startLTC.onValueChange(1,1,1,1)
-	new_song=op('../track_master/name')[1,0]
-	current_song=op('../track_master/name')[3,0]
-	#print(f"Current song: {current_song} New song: {new_song}")
+    # If flag was set, clear it, trigger startLTC callback and restart timers
+    try:
+        flag = int(tbl[1,0].val)
+    except:
+        flag = 0
+    if flag == 1:
+        tbl[1,0].val = '0'
+        try:
+            startLTC.onValueChange(channel, sampleIndex, val, prev)
+        except Exception as e:
+            debug('startLTC callback error:', e)
+        start()
 
-	if current+240 < old or current -240 > old:
-		stop()
-		#startLTC.onValueChange(1,1,1,1)
-		op('currentLTC')[1,0]=1
-		print("Timecode has changed")
-	elif new_song!=current_song:
-		stop()
-		#startLTC.onValueChange(1,1,1,1)
-		op('currentLTC')[1,0]=1
-		print("Song has changed")
-	else:
-		#startLTC.onValueChange(1,1,1,1)
-		start()
-	op('currentLTC')[0,0]=current
-	# Update the current song
-	op('../track_master/name')[3,0]=new_song
-	return
+    # Read the new timecode (in seconds)
+    try:
+        current = op('ltcin1')['total_seconds'][0]
+    except Exception as e:
+        debug('Error reading LTC timecode:', e)
+        return
+
+    # Read the old timecode (or default to current)
+    try:
+        old = float(tbl[0,0].val)
+    except:
+        old = current
+
+    # Let startLTC do its own housekeeping every time
+    try:
+        startLTC.onValueChange(channel, sampleIndex, val, prev)
+    except:
+        pass
+
+    # Pull song names from your track_master NAME DAT
+    nameDAT = op('../track_master/name')
+    try:
+        new_song      = nameDAT[1,0].val
+    except:
+        new_song = ''
+    try:
+        previous_song = nameDAT[3,0].val
+    except:
+        previous_song = ''
+
+    # Decide whether to restart or continue
+    if abs(current - old) > 240:
+        stop()
+        tbl[1,0].val = '1'
+        print('Timecode has changed')
+    elif new_song != previous_song:
+        stop()
+        tbl[1,0].val = '1'
+        print('Song has changed')
+    else:
+        start()
+
+    # Store the new state
+    tbl[0,0].val = str(current)
+    nameDAT[3,0].val = new_song
+
+    return

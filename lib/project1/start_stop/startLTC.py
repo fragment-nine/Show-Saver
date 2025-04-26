@@ -1,86 +1,98 @@
-# me - this DAT
-#
-# channel - the Channel object which has changed
-# sampleIndex - the index of the changed sample
-# val - the numeric value of the changed sample
-# prev - the previous sample value
-#
-# Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
+# me – this DAT (startLTC)
+
 import os
 import tools
 
 def makeFolders(date):
-    # Pull each global individually
-    outputFolder = str(op('/globals')['outputFolder', 1])
-    pgmFolder = str(op('/globals')['pgmFolder', 1])
-    wavFolder = str(op('/globals')['wavFolder', 1])
-    
-    # Define a list of folders to process
-    folderPaths = [outputFolder, pgmFolder, wavFolder]
-    
-    # Loop through each folder path and create directories
-    for basePath in folderPaths:
-        path = basePath + '/' + date
-        longPath = basePath + '/Long Recordings/' + date
+    # Your three base-folder Table DATs:
+    pgmDAT = op('/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/null2')
+    ltcDAT = op('/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/null6')
+    wavDAT = op('/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/null4')
 
-        # Create the main folder if it doesn't exist
-        if not os.path.exists(path):
-            os.makedirs(path)
-            print(f"The new directory is created: {path}")
-        
-        # Create the 'Long Recordings' folder if it doesn't exist
-        if not os.path.exists(longPath):
-            os.makedirs(longPath)
-            print(f"The new directory is created: {longPath}")
-    
-    return
+    bases = []
+    for name, dat in (('pgmFolder', pgmDAT),
+                      ('ltcFolder', ltcDAT),
+                      ('wavFolder', wavDAT)):
+        if not dat:
+            debug(f"makeFolders: DAT for {name} not found at expected path")
+            continue
+        try:
+            basePath = dat[0,1].val
+        except Exception as e:
+            debug(f"makeFolders: error reading {name}[0,1]:", e)
+            continue
+        if not basePath:
+            debug(f"makeFolders: {name} path is empty")
+            continue
+        bases.append(basePath)
+
+    if not bases:
+        debug("makeFolders: no valid base paths found, aborting")
+        return
+
+    # Create Day folder and Long Recordings subfolder
+    for base in bases:
+        dayFolder  = os.path.join(base, date)
+        longFolder = os.path.join(base, 'Long Recordings', date)
+        for p in (dayFolder, longFolder):
+            if not os.path.exists(p):
+                try:
+                    os.makedirs(p)
+                    print(f"Created directory: {p}")
+                except Exception as e:
+                    debug(f"makeFolders: failed to create {p}:", e)
 
 def getDate():
-	date=str('{0:02d}'.format(int(op('clock')['year'])))+str('{0:02d}'.format(int(op('clock')['month'])))+str('{0:02d}'.format(int(op('clock')['day'])))
-	return date
+    c = op('clock')
+    return f"{int(c['year'][0]):02d}{int(c['month'][0]):02d}{int(c['day'][0]):02d}"
 
 def getTime():
-	time=str('{0:02d}'.format(int(op('clock')['hour'])))+str('{0:02d}'.format(int(op('clock')['min'])))+str('{0:02d}'.format(int(op('clock')['sec'])))
-	return time
+    c = op('clock')
+    return f"{int(c['hour'][0]):02d}{int(c['min'][0]):02d}{int(c['sec'][0]):02d}"
 
 def onValueChange(channel, sampleIndex, val, prev):
-	trackMaster=op('/project1/track_master/trackMaster')
-	name=op('../track_master/name')
-	ltc=op('ltcin1')
+    trackMaster = op('/project1/track_master/trackMaster')
+    nameTable   = op('/project1/track_master/name')
+    ltcCHOP     = op('ltcin1')
 
-	date=getDate()
-	time=getTime()
+    date = getDate()
+    time = getTime()
 
-	ltcTotal=ltc['total_seconds']
-	song=''
-	
-	for i in range(trackMaster.numRows):
-		if  ltcTotal < int(trackMaster[i,2]):
-			song = str(trackMaster[i-1,1]).replace('/','')
-			break
+    # Read timecode safely
+    try:
+        ltcTotal = float(ltcCHOP['total_seconds'][0])
+    except Exception as e:
+        debug("onValueChange: couldn't read total_seconds:", e)
+        return
 
-	makeFolders(date)
+    # Determine song
+    song = ''
+    for i in range(trackMaster.numRows):
+        try:
+            thresh = int(trackMaster[i,2].val)
+        except:
+            continue
+        if ltcTotal < thresh:
+            song = trackMaster[i-1,1].val.replace('/','')
+            break
 
-	name[0,0]=date+r'/'+song+'_'+date+'_'+time
-	name[1,0]=song
-	name[2,0]=date+'_'+time
+    makeFolders(date)
 
-	return
+    # Write out into your name table
+    nameTable[0,0].val = f"{date}/{song}_{date}_{time}"
+    nameTable[1,0].val = song
+    nameTable[2,0].val = f"{date}_{time}"
+    return
 
-def manualStart():
-	trackMaster=op('/project1/track_master/trackMaster')
-	name=op('../track_master/name')
-	ltc=op('ltcin1')
+def manualStart(channel=None, sampleIndex=None, val=None, prev=None):
+    nameTable = op('/project1/track_master/name')
+    date = getDate()
+    time = getTime()
+    song = "Manual Start"
 
-	date=getDate()
-	time=getTime()
+    makeFolders(date)
 
-	song="Manual Start"
-
-	makeFolders(date)
-
-	name[0,0]=date+r'/'+song+'_'+date+'_'+time
-	name[1,0]=song
-	name[2,0]=date+'_'+time
-
-	return
+    nameTable[0,0].val = f"{date}/{song}_{date}_{time}"
+    nameTable[1,0].val = song
+    nameTable[2,0].val = f"{date}_{time}"
+    return
