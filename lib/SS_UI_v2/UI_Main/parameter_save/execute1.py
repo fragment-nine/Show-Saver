@@ -44,25 +44,25 @@ def onDeviceChange():
 	return
 
 def onProjectPreSave():
-	# Save script logic here
-    comp_path = '/SS_UI_v2/UI_Main'  # Replace with your parent path
-    table = op('parameter_table')  # Replace with your Table DAT's path
+    comp_path = '/SS_UI_v2/UI_Main'    # parent path
+    table = op('parameter_table')      # your Table DAT
 
-    # Clear existing table content
+    # clear and re-write headers
     table.clear()
-    table.appendRow(['OP Path', 'Parameter Name', 'Value'])  # Add headers
+    table.appendRow(['OP Path', 'Parameter Name', 'Value'])
 
-    # Function to find all TOPs recursively
-    def find_all_tops(op_path):
-        return [op for op in op(op_path).findChildren()]
-
-    # Iterate through all TOPs and store 'Value0' parameters
-    for top in find_all_tops(comp_path):
-        if hasattr(top.par, 'Value0'):  # Check if 'Value0' parameter exists
-            table.appendRow([top.path, 'Value0', top.par.Value0.eval()])
+    # iterate all descendants under your UI component
+    for top in op(comp_path).findChildren():
+        # check **both** param names
+        for pname in ('Value0', 'value0'):
+            if hasattr(top.par, pname):
+                p = getattr(top.par, pname)
+                try:
+                    val = p.eval()
+                except:
+                    val = p.val
+                table.appendRow([top.path, pname, val])
     return
 
 def onProjectPostSave():
 	return
-
-	
