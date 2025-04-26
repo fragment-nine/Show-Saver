@@ -1,12 +1,12 @@
-v1	UltraStudio Recorder 3G (1)
+v1	UltraStudio Recorder 3G
 v1l	blackmagic
-v1d	V1|||1553788704|||0|||0|||UltraStudio Recorder 3G (1)
-a1	Dante Virtual Soundcard
+v1d	V1|||3461393568|||0|||0|||UltraStudio Recorder 3G
+a1	USB Audio Device
 a1l	coreaudio
-a1d	AUDINATE-DVS-UID
-a2	None
-a2l	None
-a2d	None
+a1d	AppleUSBAudioEngine:C-Media Electronics Inc.:USB Audio Device:2100000:2,1
+a2	Blackmagic UltraStudio Recorder 3G
+a2l	coreaudio
+a2d	94:ce50aca0:00000000:Audio
 a3	None
 a3l	None
 a3d	None
@@ -18,7 +18,7 @@ outputFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/381_LG_Festi
 pgmFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/381_LG_Festivals_25/05_Rehearsal Recordings
 wavFolder	/Users/jacksongallagher/FragmentNine Dropbox/0 F9 Team/381_LG_Festivals_25/05_Rehearsal Recordings
 longPrefix	Long
-pgm	device1_chan1
-tc	device1_chan2
+pgm	device2_chan1
+tc	device1_chan1
 pgmbu	ndi_chan1
 tccompare	device1_chan2
