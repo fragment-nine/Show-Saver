@@ -1,0 +1,19 @@
+def run():
+    print("Running script...")
+
+    screenGrab = op('/project1/screen_capture/screengrab1')
+    parm = screenGrab.par.source
+
+    labels = parm.menuLabels
+    values = parm.menuNames
+
+    print("Labels:", labels)
+    print("Values:", values)
+
+    menuTable = op('sourceMenuTable')
+    menuTable.clear()
+    menuTable.appendRow(['value', 'label'])
+
+    for label, value in zip(labels, values):
+        print(f"Adding row: {value}, {label}")
+        menuTable.appendRow([value, label])

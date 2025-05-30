@@ -1,0 +1,17 @@
+column	Column
+columnLabel	*
+sourceData	
+sourceDataMode	string
+textFormat	
+cellLook	
+topPath	
+help	
+width	100
+stretch	0
+editable	0
+clickOnDrag	0
+draggable	0
+selectRow	1
+justify	CENTERLEFT
+fontBold	0
+fontItalic	0

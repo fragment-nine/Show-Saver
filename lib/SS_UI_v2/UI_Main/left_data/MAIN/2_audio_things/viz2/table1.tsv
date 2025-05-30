@@ -1,0 +1,2 @@
+'text'	'x'	'y'
+'{0:02d}'.format( int( op( 'tc_info' )[ 'hour' ] ) ) + ':' + '{0:02d}'.format( int( op( 'tc_info' )[ 'minute' ] ) ) + ':' + '{0:02d}'.format( int( op( 'tc_info' )[ 'second' ] ) )+ ':' + '{0:02d}'.format( int( op( 'tc_info' )[ 'frame' ] ) )	op('pixel_layout')[0]	op('pixel_layout')[1]
