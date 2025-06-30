@@ -11,9 +11,9 @@ import tools
 
 def makeFolders(date):
     # Pull each global individually
-    outputFolder = str(op('/globals')['outputFolder', 1])
-    pgmFolder = str(op('/globals')['pgmFolder', 1])
-    wavFolder = str(op('/globals')['wavFolder', 1])
+    outputFolder = str(op('/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/null6')[0, 1])
+    pgmFolder = str(op('/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/null2')[0, 1])
+    wavFolder = str(op('/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/null4')[0, 1])
     
     # Define a list of folders to process
     folderPaths = [outputFolder, pgmFolder, wavFolder]
