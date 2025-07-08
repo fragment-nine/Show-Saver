@@ -1,0 +1,10 @@
+Name	Data	Description
+rowDragColor	0.395 0.549 0.605 1.0	Color of line indicating row drop location
+dragDropColor	0 1 0 1	Color of line indicating drag/drop location
+dividingLineColor	0.1 0.1 0.1 1	Dividing line for parameter: Row Striping
+dragDropOverlayColor	0.395 0.549 0.605 0.1	Color of highlight indicating drag/drop location in row mode
+rowStripeOverlayColor	1 1 1 .05	Used when Row Striping is set to "Striping"
+indentWidth	18	Width for one level of indent
+wiredOverlayColor	0 0 0 0.2	Overlay color for wired children 
+wiredOverlayCols	2	Space separated list of cols to use wiredOverlayColor on
+refreshChar	chr(0xF0450)	Icon for corner refresh

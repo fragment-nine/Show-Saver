@@ -1,0 +1,17 @@
+column	Indent	Expando	Path	Type	rel_file_path	timestamp	dirty	build	touch_build	delete
+columnLabel			Network Path	*	External File Path	Timestamp	Dirty?	Build	Touch Build	Del
+sourceData			path	type	rel_file_path	timestamp	dirty	build	touch_build	
+sourceDataMode		string	string	string	string	string	blank	string	string	blank
+cellLook	indent	expando		button	button		button			button
+textFormat		{'' if text == '' else chr(0xf0140) if text == '1' else chr(0xf0142)}								X
+topPath							dirty*			
+help			*							
+width		18	0	80	280	175	60	50	85	34
+stretch		0	1	0	1	0	0	0	0	0
+editable			0	0	0	0	0	0	0	0
+justify		CENTER	CENTERLEFT	CENTER	CENTERLEFT	CENTERLEFT	CENTERLEFT	CENTER		CENTER
+draggable		0	0	0	0	0	0			0
+selectRow	1	0	1	1	1	1	1	1	1	1
+clickOnDrag		0	0	0	0	0	0			0
+fontBold			0	0	0	0	0			0
+fontItalic			0	0	0	0	0			0

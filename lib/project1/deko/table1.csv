@@ -1,0 +1,5 @@
+"'text'","'x'","'y'"
+"'Song:'+ op('../track_master/name')[1,0] ","390","6.7"
+"'LTC:' + str('{0:02d}'.format(int(op('../start_stop/ltcin1')['hour'])))+"":""+str('{0:02d}'.format(int(op('../start_stop/ltcin1')['minute'])))+"":""+str('{0:02d}'.format(int(op('../start_stop/ltcin1')['second'])))+"":""+str('{0:02d}'.format(int(op('../start_stop/ltcin1')['frame'])))","0","6"
+"'Date:' + op('../track_master/name')[2,0]","170","6"
+"str(int(op('fps')['fps'].eval())) + ' FPS'","1200","6"

@@ -7,21 +7,14 @@
 # 
 # Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
 
-def onOffToOn(channel, sampleIndex, val, prev):
-	op('/project1/start_stop/timer1').par.start.pulse()
-	op('/project1/start_stop/timer2').par.start.pulse()
 
-	return
-
-def whileOn(channel, sampleIndex, val, prev):
-	return
-
-def onOnToOff(channel, sampleIndex, val, prev):
-	return
-
-def whileOff(channel, sampleIndex, val, prev):
-	return
 
 def onValueChange(channel, sampleIndex, val, prev):
+	op('/project1/start_stop/timer1').par.start.pulse()
+	op('/project1/start_stop/timer2').par.start.pulse()
+	op('/project1/start_stop/timer3').par.start.pulse()
+	op('/project1/start_stop/timer4').par.start.pulse()
+	op('/project1/start_stop/manualStart').par.const0value=1
 	return
+	
 	

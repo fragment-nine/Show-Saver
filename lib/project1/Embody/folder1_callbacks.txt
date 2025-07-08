@@ -1,0 +1,34 @@
+# me - this DAT
+# dat - the DAT that is querying
+# info - the file or folder being queried
+# 	name 				- the name with extension
+# 	baseName 			- the name without extension
+# 	path 				- the full path
+# 	extension 			- the extension of the file
+# 	folder 				- the path of the folder this is in
+# 	isFolder			- true if a folder, false if a file
+#	depth 				- the depth of the file/folder from the root
+# 	size 				- size of file or folder
+# 	type 				- a description of the file type
+# 	dateCreated 		- the file or folder creation date
+# 	dateModified 		- the file or folder last modified date
+# 	dateAccessed 		- the file or folder last accessed date
+# row - the table row index
+
+# Uncomment following two functions to add custom columns
+
+#def onInitGetColumnNames(dat):
+#	return ['digits']
+#
+#def onGetValues(dat, info, row):
+#	return [dat.digits]
+
+# control which folders are included
+
+def onGetInclude(dat, info, row):
+	return True
+
+def onFound(dat, info, row):
+	return
+
+	

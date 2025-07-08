@@ -1,8 +1,8 @@
-
 Backup/*
-lib/.DS_Store
-.DS_Store
-ShowRecorder.130.toe
-ShowRecorder.toe
+*.DS_Store
 test/*
-*globals.py
+lib/globals.py
+screenshot.png
+ShowSaver.*.toe
+ShowSaver.toe
+lib/SS_UI_v2/UI_Main/parameter_save/parameter_table.csv
