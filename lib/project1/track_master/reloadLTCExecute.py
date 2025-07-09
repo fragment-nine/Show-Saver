@@ -22,7 +22,16 @@ def onOffToOn(channel, sampleIndex, val, prev):
         print('File has a value')
         trackMaster.clear()
         with open(str(file), newline='') as csvfile:
-            spamreader = csv.reader(csvfile, delimiter=',')
+            # Read a sample to detect the delimiter
+            sample = csvfile.read(1024)
+            csvfile.seek(0)  # Reset file pointer to beginning
+            
+            # Detect the delimiter
+            sniffer = csv.Sniffer()
+            delimiter = sniffer.sniff(sample).delimiter
+            print(f'Detected delimiter: "{delimiter}"')
+            
+            spamreader = csv.reader(csvfile, delimiter=delimiter)
             header = None
             for row in spamreader:
                 if header:
