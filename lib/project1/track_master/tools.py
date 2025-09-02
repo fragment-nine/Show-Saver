@@ -1,32 +1,13 @@
 def stampToInt(stamp):
-	#Cast stamp to string in case we get a bad value
-	try:
-		stamp=str(stamp)
-	except:
-		print('Couldn\'t cast stamp, may have passed an integer for tc')
-		return
-	hours,minutes,seconds,frames = 0,0,0,0
-	length=len(stamp)
-	stamp=stamp.replace(':','')
-	frames=stamp[length-2:]
-	stamp=stamp[:length-2]
-	length=len(stamp)
-	seconds=stamp[length-2:]
-	stamp=stamp[:length-2]
-	length=len(stamp)
-	minutes=stamp[length-2:]
-	stamp=stamp[:length-2]
-	length=len(stamp)
-	hours=stamp[length-2:]
-	stamp=stamp[:length-2]
-	length=len(stamp)
-	if hours == '':
-		hours=0
-	if minutes == '':
-		minutes=0
-	if seconds == '':
-		seconds=0
-	if frames == '':
-		frames=0
-	total=(int(hours)*60*60)+(int(minutes)*60)+(int(seconds))
-	return total
+    parts = [p for p in re.split(r'[:;]', str(stamp).strip()) if p != '']
+    if len(parts) == 4:
+        h, m, s, f = parts
+    elif len(parts) == 3:
+        h, m, s = parts; f = '0'
+    elif len(parts) == 2:
+        h, m, s, f = '0', parts[0], parts[1], '0'
+    else:  # len == 1
+        h, m, s, f = '0', '0', parts[0], '0'
+
+    total = int(h or 0)*3600 + int(m or 0)*60 + int(s or 0)
+    return total  # add frames/fps if you need fractional seconds
