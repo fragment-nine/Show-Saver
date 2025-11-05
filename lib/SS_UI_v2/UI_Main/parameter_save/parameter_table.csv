@@ -75,7 +75,7 @@
 "/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC","Value0","ndi_chan1"
 "/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC/dropmenu0/popMenu/parentMenuOpen","value0","0.0"
 "/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/selectTC/dropmenu0/dropmenuSize","value0","False"
-"/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select/dropDownMenu1","Value0","V1|||3F45E80A-0176-46F7-B185-BB9E2C0E82E3|||0|||0|||FaceTime HD Camera"
+"/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select/dropDownMenu1","Value0","default"
 "/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select/dropDownMenu1/dropmenu0/popMenu/parentMenuOpen","value0","0.0"
 "/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/v_select/dropDownMenu1/dropmenu0/dropmenuSize","value0","False"
 "/SS_UI_v2/UI_Main/left_data/SETTINGS/audio_routing/audio_select/a_select1/dropDownMenu1","Value0","default"
