@@ -14,29 +14,29 @@ path	type	rel_file_path	timestamp	dirty	build	touch_build
 /project1/start_stop	container	lib/project1/start_stop.tox	2025-11-03 17:03:50 UTC	False	2	2023.11760
 /project1/screenshot	container	lib/project1/screenshot.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
 /project1/ma3	container	lib/project1/ma3.tox	2025-11-03 17:03:50 UTC	False	2	2023.11760
-/project1/files_out	container	lib/project1/files_out.tox	2025-11-13 02:49:50 UTC	False	2	2023.11760
+/project1/files_out	container	lib/project1/files_out.tox	2025-11-06 23:48:38 UTC	False	2	2023.11760
 /project1/deko/table1	table	lib/project1/deko/table1.csv	2025-05-30 13:33:39 UTC			
 /project1/deko	container	lib/project1/deko.tox	2025-11-03 18:11:36 UTC	False	2	2023.11760
-/project1/audio_input	container	lib/project1/audio_input.tox	2025-11-14 04:33:24 UTC	False	3	2023.11760
+/project1/audio_input	container	lib/project1/audio_input.tox	2025-11-06 02:38:37 UTC	False	2	2023.11880
 /project1	container	lib/project1.tox	2025-11-06 02:38:37 UTC	False	3	2023.11760
-/perform	window	lib/perform.tox	2025-11-07 05:21:00 UTC	False	1	2023.11760
+/perform	window	lib/perform.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
 /SS_UI_v2/UI_Main/right_feed	container	lib/SS_UI_v2/UI_Main/right_feed.tox	2025-11-03 18:11:36 UTC	False	1	2023.11760
 /SS_UI_v2/UI_Main/parameter_save/parameter_table	table	lib/SS_UI_v2/UI_Main/parameter_save/parameter_table.csv	2025-05-30 13:33:39 UTC			
 /SS_UI_v2/UI_Main/parameter_save/execute1	execute	lib/SS_UI_v2/UI_Main/parameter_save/execute1.py	2025-05-30 13:33:39 UTC			
 /SS_UI_v2/UI_Main/parameter_save	container	lib/SS_UI_v2/UI_Main/parameter_save.tox	2025-11-03 17:03:50 UTC	False	2	2023.11760
-/SS_UI_v2/UI_Main/left_data/viewer	select	lib/SS_UI_v2/UI_Main/left_data/viewer.tox	2025-11-13 01:10:20 UTC	False	3	2023.11760
+/SS_UI_v2/UI_Main/left_data/viewer	select	lib/SS_UI_v2/UI_Main/left_data/viewer.tox	2025-11-03 18:11:36 UTC	False	3	2023.11760
 /SS_UI_v2/UI_Main/left_data/view_select/radioButtons0	container	lib/SS_UI_v2/UI_Main/left_data/view_select/radioButtons0.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
-/SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2025-11-13 01:10:20 UTC	False	3	2023.11760
+/SS_UI_v2/UI_Main/left_data/view_select	widget	lib/SS_UI_v2/UI_Main/left_data/view_select.tox	2025-11-03 17:03:50 UTC	False	3	2023.11760
 /SS_UI_v2/UI_Main/left_data/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/chopexec1.py	2025-05-30 13:33:39 UTC			
 /SS_UI_v2/UI_Main/left_data/VIDEO/screen_capture/display_select	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/screen_capture/display_select.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
 /SS_UI_v2/UI_Main/left_data/VIDEO/screen_capture	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/screen_capture.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
-/SS_UI_v2/UI_Main/left_data/VIDEO/codec	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/codec.tox	2025-11-07 00:14:01 UTC	False	1	2023.11760
+/SS_UI_v2/UI_Main/left_data/VIDEO/codec	widget	lib/SS_UI_v2/UI_Main/left_data/VIDEO/codec.tox	2025-11-06 23:48:38 UTC	False	2	2023.11760
 /SS_UI_v2/UI_Main/left_data/VIDEO/ROI	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO/ROI.tox	2025-11-03 18:11:36 UTC	False	1	2023.11760
-/SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2025-11-07 00:14:01 UTC	False	2	2023.11760
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_4	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_4.tox	2025-11-12 20:51:17 UTC	False	1	2023.11760
+/SS_UI_v2/UI_Main/left_data/VIDEO	container	lib/SS_UI_v2/UI_Main/left_data/VIDEO.tox	2025-11-06 23:48:38 UTC	False	2	2023.11760
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_4	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_4.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
 /SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_3.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2025-11-12 20:51:17 UTC	False	1	2023.11760
-/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2025-11-12 20:51:17 UTC	False	1	2023.11760
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_2.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
+/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/wavform_1.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
 /SS_UI_v2/UI_Main/left_data/SETTINGS/toggle_button2	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/toggle_button2.tox	2025-11-03 17:03:50 UTC	False	1	2023.11760
 /SS_UI_v2/UI_Main/left_data/SETTINGS/toggle_button1	container	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/toggle_button1.tox	2025-11-06 02:38:37 UTC	False	2	2023.11880
 /SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec1	chopexec	lib/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/chopexec1.py	2025-05-30 13:33:39 UTC			
