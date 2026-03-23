@@ -74,7 +74,8 @@ def onOffToOn(channel, sampleIndex, val, prev):
 
                 # Clean the song name by removing illegal characters.
                 name = clean_song_name(name)
-                trackMaster.appendRow([tc, name, tools.stampToInt(tc)])
+                tc_out = tools.timecodeToHHMMSS(tc)
+                trackMaster.appendRow([tc_out, name, tools.stampToInt(tc)])
 
             if not header:
                 print('LTC Not Valid')

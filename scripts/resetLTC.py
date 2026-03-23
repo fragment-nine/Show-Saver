@@ -32,7 +32,8 @@ def onOffToOn(channel, sampleIndex, val, prev):
 						name = headers['NAME']
 					if 'TC' in headers:
 						tc = headers['TC']
-					trackMaster.appendRow([tc,name,tools.stampToInt(tc)])
+					tc_out = tools.timecodeToHHMMSS(tc)
+					trackMaster.appendRow([tc_out,name,tools.stampToInt(tc)])
 				else:
 					header=[]
 					for i in range(len(row)):

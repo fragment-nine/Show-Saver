@@ -15,6 +15,8 @@ def onRowChange(dat, rows):
     for rowIndex in rows:
         # Get the first cell (assumed to be the timecode stamp)
         timecode = dat[rowIndex, 0].val  # First column (index 0)
+        timecode = tools.timecodeToHHMMSS(timecode)
+        dat[rowIndex, 0] = timecode
 
         # Convert the timecode using the tools.stampToInt function
         converted_timecode = tools.stampToInt(timecode)
