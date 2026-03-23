@@ -1,3 +1,5 @@
+import re
+
 def stampToInt(stamp):
     parts = [p for p in re.split(r'[:;]', str(stamp).strip()) if p != '']
     if len(parts) == 4:

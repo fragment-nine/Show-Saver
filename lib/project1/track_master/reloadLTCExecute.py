@@ -13,6 +13,9 @@ def clean_song_name(name):
     cleaned_name = re.sub(illegal_chars_pattern, '_', name)
     return cleaned_name
 
+def normalize_header(value):
+    return str(value or '').strip().lower()
+
 def onOffToOn(channel, sampleIndex, val, prev):
     print('Resetting LTC File')
     file = op('constants')['ltcLocation', 1]
@@ -33,32 +36,47 @@ def onOffToOn(channel, sampleIndex, val, prev):
             
             spamreader = csv.reader(csvfile, delimiter=delimiter)
             header = None
+            name_key = None
+            tc_key = None
             for row in spamreader:
-                if header:
-                    headers = {}
-                    for i in range(len(row)):
-                        headers[header[i]] = row[i]
-                    
-                    name, tc = '', ''
-                    if 'NAME' in headers:
-                        name = headers['NAME']
-                        # Clean the song name by removing illegal characters
-                        name = clean_song_name(name)
-                    if 'TC' in headers:
-                        tc = headers['TC']
-                    
-                    trackMaster.appendRow([tc, name, tools.stampToInt(tc)])
-                else:
-                    header = []
-                    for i in range(len(row)):
-                        header.append(row[i])
-                    valid = True
-                    if 'NAME' not in header:
-                        valid = False
-                    if 'TC' not in header:
-                        valid = False
-                    if not valid:
-                        print('LTC Not Valid')
-                        break
+                if not header:
+                    current_header = [str(cell or '').strip() for cell in row]
+                    normalized = [normalize_header(cell) for cell in current_header]
+
+                    # Support both old LTC files (NAME/TC) and current TrackMaster exports (Name/TC Stamp).
+                    if 'name' in normalized:
+                        if 'tc' in normalized:
+                            tc_candidate = 'tc'
+                        elif 'tc stamp' in normalized:
+                            tc_candidate = 'tc stamp'
+                        elif 'timecode' in normalized:
+                            tc_candidate = 'timecode'
+                        else:
+                            tc_candidate = None
+
+                        if tc_candidate:
+                            header = current_header
+                            header_lookup = {normalize_header(col): col for col in current_header}
+                            name_key = header_lookup.get('name')
+                            tc_key = header_lookup.get(tc_candidate)
+                            continue
+                    continue
+
+                headers = {}
+                for i in range(len(row)):
+                    headers[header[i]] = row[i]
+
+                name = headers.get(name_key, '').strip() if name_key else ''
+                tc = headers.get(tc_key, '').strip() if tc_key else ''
+
+                if not tc:
+                    continue
+
+                # Clean the song name by removing illegal characters.
+                name = clean_song_name(name)
+                trackMaster.appendRow([tc, name, tools.stampToInt(tc)])
+
+            if not header:
+                print('LTC Not Valid')
             print(trackMaster)
     return
