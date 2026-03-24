@@ -9,6 +9,35 @@
 import os
 import tools
 
+_last_song_osc_key = None
+
+def push_song_osc(running):
+	"""
+	Send current song + wall-clock timestamp on oscout1 (OSC Out DAT).
+	One OSC message /showsaver/ltc with args: combined string (song\\tdate_time), run state (1/0).
+	Skips duplicate consecutive payloads (LTC can tick faster than wall-clock text changes).
+	"""
+	global _last_song_osc_key
+	o = op('oscout1')
+	if o is None or not hasattr(o, 'sendOSC'):
+		print('[LTC/OSC] oscout1 missing or not an OSC Out DAT (no sendOSC); not sending')
+		return
+	nm = op('../track_master/name')
+	song = str(nm[1, 0]) if nm.numRows > 1 else ''
+	ts = str(nm[2, 0]) if nm.numRows > 2 else ''
+	combined = f'{song}\t{ts}'
+	run_f = 1.0 if running else 0.0
+	key = (combined, run_f)
+	if key == _last_song_osc_key:
+		return
+	_last_song_osc_key = key
+	try:
+		# TD API: sendOSC(addr, list_of_args) — pairs (addr, list) for multiple messages.
+		nbytes = o.sendOSC('/showsaver/ltc', [combined, run_f])
+		print(f'[LTC/OSC] sendOSC /showsaver/ltc  song+ts={combined!r}  run={run_f}  bytes={nbytes}')
+	except Exception as e:
+		print(f'[LTC/OSC] sendOSC failed: {e!r}')
+
 def makeFolders(date):
     # Pull each global individually
     outputFolder = str(op('/SS_UI_v2/UI_Main/left_data/SETTINGS/split_tc_pgm/null6')[0, 1])
@@ -82,5 +111,7 @@ def manualStart():
 	name[0,0]=date+r'/'+song+'_'+date+'_'+time
 	name[1,0]=song
 	name[2,0]=date+'_'+time
+
+	push_song_osc(True)
 
 	return

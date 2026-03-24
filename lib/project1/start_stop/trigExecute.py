@@ -9,6 +9,7 @@
 
 import startLTC
 current_song=""
+_last_final_running = None
 
 def onOffToOn(channel, sampleIndex, val, prev):
 	return
@@ -31,10 +32,12 @@ def stop():
 	op('timer2').par.initialize.pulse()
 
 def onValueChange(channel, sampleIndex, val, prev):
+	global _last_final_running
 	if op('currentLTC')[1,0]==1:
 		op('currentLTC')[1,0]=0
 		startLTC.onValueChange(1,1,1,1)
 		start()
+		print('[LTC/trig] resume after stop flag: pulsed timers + refreshed name from LTC')
 	current=op('ltcin1')['total_seconds']
 	old=op('currentLTC')[0,0]
 
@@ -44,20 +47,27 @@ def onValueChange(channel, sampleIndex, val, prev):
 	current_song=op('../track_master/name')[3,0]
 	#print(f"Current song: {current_song} New song: {new_song}")
 
+	final_running = True
 	if current+240 < old or current -240 > old:
 		stop()
 		#startLTC.onValueChange(1,1,1,1)
 		op('currentLTC')[1,0]=1
-		print("Timecode has changed")
+		final_running = False
+		print(f'[LTC/trig] timecode jump  ltc_s={current}  prev_stored_s={old}  song={new_song!r}  (was {current_song!r})')
 	elif new_song!=current_song:
 		stop()
 		#startLTC.onValueChange(1,1,1,1)
 		op('currentLTC')[1,0]=1
-		print("Song has changed")
+		final_running = False
+		print(f'[LTC/trig] song change  ltc_s={current}  {current_song!r} -> {new_song!r}')
 	else:
 		#startLTC.onValueChange(1,1,1,1)
 		start()
 	op('currentLTC')[0,0]=current
 	# Update the current song
 	op('../track_master/name')[3,0]=new_song
+	if final_running != _last_final_running:
+		print(f'[LTC/trig] running state {_last_final_running} -> {final_running}  ltc_s={current}  song={new_song!r}')
+		_last_final_running = final_running
+	startLTC.push_song_osc(final_running)
 	return
