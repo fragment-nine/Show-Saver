@@ -11,11 +11,12 @@ import tools
 
 _last_song_osc_key = None
 
-def push_song_osc(running):
+def push_song_osc(running, force=False):
 	"""
 	Send current song + wall-clock timestamp on oscout1 (OSC Out DAT).
 	One OSC message /showsaver/ltc with args: combined string (song\\tdate_time), run state (1/0).
 	Skips duplicate consecutive payloads (LTC can tick faster than wall-clock text changes).
+	If force=True, send even when payload matches the last send (explicit stop/start).
 	"""
 	global _last_song_osc_key
 	o = op('oscout1')
@@ -28,7 +29,7 @@ def push_song_osc(running):
 	combined = f'{song}\t{ts}'
 	run_f = 1.0 if running else 0.0
 	key = (combined, run_f)
-	if key == _last_song_osc_key:
+	if key == _last_song_osc_key and not force:
 		return
 	_last_song_osc_key = key
 	try:

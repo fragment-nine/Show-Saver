@@ -6,15 +6,64 @@
 # prev - the previous sample value
 #
 # Make sure the corresponding toggle is enabled in the CHOP Execute DAT.
+#
+# Idle stop: enable "While On" on this CHOP Execute (same target as Value Change,
+# e.g. ltcin1). While total_seconds stays unchanged for LTC_IDLE_TIMEOUT_SEC wall
+# seconds, we send OSC stop and reset timers. If your TC sits at 0 when idle and
+# While On does not run, point a second CHOP Execute at a constant CHOP and call
+# tick_ltc_idle_watch() from its While On.
 
+import time
 import startLTC
-current_song=""
+
+current_song = ''
 _last_final_running = None
+
+LTC_IDLE_TIMEOUT_SEC = 15.0
+_LTC_IDLE_EPS = 1e-5
+_ltc_idle_last_sec = None
+_ltc_idle_last_change = None
+_ltc_idle_stop_sent = False
+
+def _touch_ltc_activity(sec):
+	"""Reset idle timer — call when we know LTC advanced or CHOP reported a change."""
+	global _ltc_idle_last_sec, _ltc_idle_last_change, _ltc_idle_stop_sent
+	_ltc_idle_last_sec = float(sec)
+	_ltc_idle_last_change = time.time()
+	_ltc_idle_stop_sent = False
+
+def tick_ltc_idle_watch():
+	"""Call from While On every frame (or from a always-cooking CHOP)."""
+	global _ltc_idle_last_sec, _ltc_idle_last_change, _ltc_idle_stop_sent
+	try:
+		ltc = op('ltcin1')
+		cur = float(ltc['total_seconds'])
+	except Exception:
+		return
+	now = time.time()
+	if _ltc_idle_last_sec is None:
+		_ltc_idle_last_sec = cur
+		_ltc_idle_last_change = now
+		return
+	if abs(cur - _ltc_idle_last_sec) > _LTC_IDLE_EPS:
+		if _ltc_idle_stop_sent:
+			print('[LTC/trig] idle: timecode advancing again after idle stop')
+		_ltc_idle_last_sec = cur
+		_ltc_idle_last_change = now
+		_ltc_idle_stop_sent = False
+		return
+	if now - _ltc_idle_last_change < LTC_IDLE_TIMEOUT_SEC:
+		return
+	if _ltc_idle_stop_sent:
+		return
+	_ltc_idle_stop_sent = True
+	notify_program_stop(f'idle timeout ({LTC_IDLE_TIMEOUT_SEC}s) — frozen ltcin1 total_seconds')
 
 def onOffToOn(channel, sampleIndex, val, prev):
 	return
 
 def whileOn(channel, sampleIndex, val, prev):
+	tick_ltc_idle_watch()
 	return
 
 def onOnToOff(channel, sampleIndex, val, prev):
@@ -30,6 +79,19 @@ def start():
 def stop():
 	op('timer1').par.initialize.pulse()
 	op('timer2').par.initialize.pulse()
+
+def notify_program_stop(reason='external'):
+	"""Timers init, resume flag set, OSC stop — shared by idle timeout, pgm `stop_record`, etc."""
+	global _last_final_running
+	stop()
+	try:
+		op('currentLTC')[1, 0] = 1
+	except Exception:
+		pass
+	_last_final_running = False
+	startLTC.push_song_osc(False, force=True)
+	if reason:
+		print(f'[LTC/trig] program stop — {reason}')
 
 def onValueChange(channel, sampleIndex, val, prev):
 	global _last_final_running
@@ -69,5 +131,7 @@ def onValueChange(channel, sampleIndex, val, prev):
 	if final_running != _last_final_running:
 		print(f'[LTC/trig] running state {_last_final_running} -> {final_running}  ltc_s={current}  song={new_song!r}')
 		_last_final_running = final_running
-	startLTC.push_song_osc(final_running)
+	# force=True when stopping so OSC is not skipped if payload matches last send
+	startLTC.push_song_osc(final_running, force=(not final_running))
+	_touch_ltc_activity(current)
 	return
