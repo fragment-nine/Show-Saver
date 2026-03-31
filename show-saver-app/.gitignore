@@ -1,7 +1,5 @@
-__pycache__/
-*.pyc
-*.egg-info/
-*.egg
+node_modules/
 dist/
-build/
-.pytest_cache/
+target/
+*.log
+.DS_Store
