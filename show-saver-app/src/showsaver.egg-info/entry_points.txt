@@ -1,0 +1,2 @@
+[console_scripts]
+showsaver = showsaver.__main__:main

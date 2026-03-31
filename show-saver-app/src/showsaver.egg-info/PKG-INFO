@@ -1,0 +1,23 @@
+Metadata-Version: 2.4
+Name: showsaver
+Version: 0.1.0
+Summary: Cross-platform live show recording app driven by LTC timecode
+License: OPL-1.1
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: sounddevice>=0.4
+Requires-Dist: soundfile>=0.12
+Requires-Dist: numpy>=1.24
+Provides-Extra: compressed
+Requires-Dist: PyAV>=12.0; extra == "compressed"
+Provides-Extra: video
+Requires-Dist: opencv-python>=4.8; extra == "video"
+Provides-Extra: ndi
+Requires-Dist: ndi-python>=5.0; extra == "ndi"
+Provides-Extra: osc
+Requires-Dist: python-osc>=1.8; extra == "osc"
+Provides-Extra: gui
+Requires-Dist: PySide6>=6.6; extra == "gui"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: pytest-cov>=4.0; extra == "dev"
