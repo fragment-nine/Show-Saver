@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bg text-text-primary m-0 p-0 overflow-hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-border-bright;
+  }
+
+  /* Form resets */
+  select, input {
+    @apply bg-surface-input text-text-primary border border-border rounded px-3 py-2
+           outline-none transition-colors duration-150;
+  }
+  select:focus, input:focus {
+    @apply border-accent ring-1 ring-accent/30;
+  }
+  select {
+    @apply cursor-pointer appearance-none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238888aa' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
+  }
+  select option {
+    @apply bg-surface text-text-primary;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded font-medium text-sm uppercase tracking-wider
+           cursor-pointer transition-all duration-150 border-none
+           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-green {
+    @apply btn bg-green-on/20 text-green-on border border-green-on/40
+           hover:bg-green-on/30;
+  }
+  .btn-red {
+    @apply btn bg-red-rec/20 text-red-rec border border-red-rec/40
+           hover:bg-red-rec/30;
+  }
+  .btn-blue {
+    @apply btn bg-accent/20 text-accent border border-accent/40
+           hover:bg-accent/30;
+  }
+  .btn-neutral {
+    @apply btn bg-surface-raised text-text-secondary border border-border
+           hover:bg-border hover:text-text-primary;
+  }
+  .panel {
+    @apply bg-surface rounded-lg border border-border p-4;
+  }
+  .panel-label {
+    @apply text-xs uppercase tracking-widest text-text-secondary mb-3;
+  }
+}

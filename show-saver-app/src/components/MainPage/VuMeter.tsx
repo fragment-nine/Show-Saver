@@ -4,11 +4,9 @@ import type { AudioLevels } from "../../types/engine";
 interface Props {
   levels: AudioLevels | null;
   label: string;
-  width?: number;
-  height?: number;
 }
 
-export function VuMeter({ levels, label, width = 40, height = 200 }: Props) {
+export function VuMeter({ levels, label }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -17,39 +15,61 @@ export function VuMeter({ levels, label, width = 40, height = 200 }: Props) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    const rms = levels?.rms ?? 0;
-    const peak = levels?.peak ?? 0;
+    const w = canvas.width;
+    const h = canvas.height;
 
-    // Convert to dB-like scale (0 to 1 range)
-    const rmsDb = Math.max(0, Math.min(1, rms * 2));
-    const peakDb = Math.max(0, Math.min(1, peak * 2));
+    const rms = Math.max(0, Math.min(1, (levels?.rms ?? 0) * 2));
+    const peak = Math.max(0, Math.min(1, (levels?.peak ?? 0) * 2));
 
     // Clear
-    ctx.fillStyle = "#1a1a2e";
-    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = "#10102a";
+    ctx.fillRect(0, 0, w, h);
 
-    // RMS bar (green -> yellow -> red)
-    const rmsHeight = rmsDb * height;
-    const gradient = ctx.createLinearGradient(0, height, 0, 0);
-    gradient.addColorStop(0, "#00ff00");
-    gradient.addColorStop(0.6, "#00ff00");
-    gradient.addColorStop(0.8, "#ffff00");
-    gradient.addColorStop(1.0, "#ff0000");
+    // Segmented meter
+    const segments = 40;
+    const segW = (w - 40) / segments;
+    const gap = 1;
+    const barY = 6;
+    const barH = h - 12;
+    const rmsSegs = Math.floor(rms * segments);
+    const peakSeg = Math.floor(peak * segments);
 
-    ctx.fillStyle = gradient;
-    ctx.fillRect(4, height - rmsHeight, width - 8, rmsHeight);
+    for (let i = 0; i < segments; i++) {
+      const x = 30 + i * segW;
+      const ratio = i / segments;
 
-    // Peak indicator (thin line)
-    const peakY = height - peakDb * height;
-    ctx.fillStyle = "#ffffff";
-    ctx.fillRect(2, peakY - 1, width - 4, 2);
+      if (i < rmsSegs) {
+        if (ratio < 0.6) ctx.fillStyle = "#2ecc71";
+        else if (ratio < 0.8) ctx.fillStyle = "#f39c12";
+        else ctx.fillStyle = "#e74c3c";
+      } else {
+        ctx.fillStyle = "#1a1a35";
+      }
+
+      ctx.fillRect(x, barY, segW - gap, barH);
+    }
+
+    // Peak indicator
+    if (peakSeg > 0 && peakSeg < segments) {
+      const peakX = 30 + peakSeg * segW;
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(peakX, barY, 2, barH);
+    }
 
     // Label
-    ctx.fillStyle = "#888";
-    ctx.font = "10px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText(label, width / 2, height - 4);
-  }, [levels, width, height, label]);
+    ctx.fillStyle = "#8888aa";
+    ctx.font = "bold 11px Inter, sans-serif";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "middle";
+    ctx.fillText(label, 4, h / 2);
+  }, [levels, label]);
 
-  return <canvas ref={canvasRef} width={width} height={height} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      width={400}
+      height={28}
+      className="w-full h-7 rounded"
+    />
+  );
 }

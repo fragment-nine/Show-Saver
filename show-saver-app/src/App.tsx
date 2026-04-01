@@ -6,49 +6,57 @@ import { useEngine } from "./hooks/useEngine";
 
 type Page = "main" | "settings" | "trackmaster";
 
+const tabs: { key: Page; label: string }[] = [
+  { key: "main", label: "Main" },
+  { key: "settings", label: "Settings" },
+  { key: "trackmaster", label: "Track Master" },
+];
+
 function App() {
   const [page, setPage] = useState<Page>("main");
   const engine = useEngine();
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100vh", background: "#0f0f1a", color: "#e0e0e0" }}>
-      {/* Navigation */}
-      <nav style={{ display: "flex", gap: "0", borderBottom: "1px solid #333" }}>
-        {(["main", "settings", "trackmaster"] as Page[]).map((p) => (
+    <div className="flex flex-col h-screen bg-bg text-text-primary">
+      {/* Tab Navigation */}
+      <nav className="flex border-b border-border bg-surface shrink-0">
+        {tabs.map((tab) => (
           <button
-            key={p}
-            onClick={() => setPage(p)}
-            style={{
-              padding: "0.75rem 1.5rem",
-              background: page === p ? "#1a1a3e" : "transparent",
-              color: page === p ? "#fff" : "#888",
-              border: "none",
-              borderBottom: page === p ? "2px solid #4a9eff" : "2px solid transparent",
-              cursor: "pointer",
-              fontSize: "0.9rem",
-              textTransform: "uppercase",
-              letterSpacing: "0.05em",
-            }}
+            key={tab.key}
+            onClick={() => setPage(tab.key)}
+            className={`px-6 py-3 text-sm font-medium uppercase tracking-wider border-b-2 transition-colors duration-150 ${
+              page === tab.key
+                ? "text-accent border-accent bg-surface-raised"
+                : "text-text-secondary border-transparent hover:text-text-primary hover:bg-surface-raised/50"
+            }`}
           >
-            {p === "trackmaster" ? "Track Master" : p}
+            {tab.label}
           </button>
         ))}
       </nav>
 
-      {/* Page content */}
-      <div style={{ flex: 1, overflow: "auto" }}>
-        {page === "main" && <MainPage status={engine.status} />}
+      {/* Page Content */}
+      <div className="flex-1 overflow-auto">
+        {page === "main" && (
+          <MainPage
+            status={engine.status}
+            settings={engine.settings}
+            onSaveSettings={engine.saveSettings}
+          />
+        )}
         {page === "settings" && (
           <SettingsPage
             settings={engine.settings}
             devices={engine.devices}
             onSave={engine.saveSettings}
+            onRefreshDevices={engine.refreshDevices}
           />
         )}
         {page === "trackmaster" && (
           <TrackMasterPage
             tracks={engine.tracks}
             onLoadCsv={engine.loadTrackMaster}
+            currentSong={engine.status?.current_song ?? ""}
           />
         )}
       </div>
